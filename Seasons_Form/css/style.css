@@ -60,7 +60,16 @@ form {
     background: rgba(255, 255, 255, 0.651);
     width: 100%;
     padding: 8px;
+    height: 50vh;
+    text-align: center;
 }
+.input-container h4 {
+    margin-bottom: 50px;
+}
+
+
+
+
 #notifBar {
     width: 100%;
     text-align: center;
