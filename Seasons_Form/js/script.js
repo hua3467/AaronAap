@@ -32,7 +32,8 @@ const projectContainer = document.querySelector("#projectContainer");
 let btnDeleteCard = document.querySelectorAll(".delete-btn");
 
 let isUserInfoSubmitted = true;
-let userID;
+let userID = Date.now();
+console.log(userID);
 let isEditing = false;
 let projectImageSelected = false;
 let editingPid = "";
@@ -314,11 +315,6 @@ const uploadImage = function (dbPath, imgStorePath, project, id) {
                     progressContainer.classList.add("hide");
                     project.image = url;
 
-                    if (dbPath.includes("alumninetwork/projects/")) {
-                        createProjectCard(project);
-                        showNotification(`The project ${project.name} is saved.`);
-                    }
-
                 });
             });
         });
@@ -412,7 +408,7 @@ const submitProfile = function () {
         userProfile['longtitude'] = longtitude;
         userProfile['latitude'] = latitude;
 
-        uploadeData("alumninetwork/user/" + userID + '/', "sodaa-alumni-image", userProfile, userProfile.uid);
+        uploadeData("seasons" + userID + '/', "seasons", userProfile, userProfile.uid);
 
     });
 
@@ -420,63 +416,11 @@ const submitProfile = function () {
     isUserInfoSubmitted = true;
 };
 
-const submitProject = function (projectID) {
-
-    if (isInputFilled(projectRequiredInfo)) {
-        highlightForms(projectRequiredInfo);
-        alert("Name, city, state, and country are required.");
-        return;
-    }
-
-    if (!isUserInfoSubmitted) {
-        submitProfile();
-    }
-
-    project = createProject(projectID);
-
-
-    project.author = userName[0].value + ' ' + userName[1].value;
-    project.major = major.value;
-
-    const projectLocation = project.city + " " + project.state + " " + project.country;
-
-
-    geocode(projectLocation, (error, {
-        latitude,
-        longtitude,
-        location
-    } = {}) => {
-
-        if (error) {
-            console.log(error);
-        }
-
-        project['longtitude'] = longtitude;
-        project['latitude'] = latitude;
-
-        uploadeData("alumninetwork/projects/" + project.pid + '/', "sodaa-alumni-project-image", project, project.pid);
-
-    });
-
-
-    setTimeout(e => {
-        notifBar.classList.add("hide");
-    }, 5000);
-}
-
-
-// 
-// 
-// 
-// 
-
-
 
 
 userInfoItems.forEach(item => {
     item.addEventListener("change", e => {
         isUserInfoSubmitted = false;
-        showNotification('Your changes have been not saved yet.');
         btnSubmit.innerHTML = "Save my Information"
         uploadProgress.style = "width: 0%";
     });

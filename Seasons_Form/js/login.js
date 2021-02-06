@@ -24,89 +24,89 @@ let userEmail;
 let userPassword;
 
 
-if (state === "login") {
-    btnLogin.addEventListener("click", e => {
+// if (state === "login") {
+//     btnLogin.addEventListener("click", e => {
 
-        userEmail = userIDBox.value;
-        userPassword = userPWBox.value;
-        //auth.createUserWithEmailAndPassword(userEmail, userPassword);
-        const promise = auth.signInWithEmailAndPassword(userEmail, userPassword);
+//         userEmail = userIDBox.value;
+//         userPassword = userPWBox.value;
+//         //auth.createUserWithEmailAndPassword(userEmail, userPassword);
+//         const promise = auth.signInWithEmailAndPassword(userEmail, userPassword);
     
-        promise
-            .then(firebaseUser => {
-                loginBox.classList.add("hide");
-                userID = firebaseUser.user.uid;
-            })
-            .catch(e => {
-                console.log(e);
+//         promise
+//             .then(firebaseUser => {
+//                 loginBox.classList.add("hide");
+//                 userID = firebaseUser.user.uid;
+//             })
+//             .catch(e => {
+//                 console.log(e);
 
-                if (e.code === "auth/user-not-found") {
-                    alert("The user is not found. Please double check your email address or create an account.");
-                } else if (e.code === "auth/wrong-password") {
-                    alert("Your password is incorrect. Please try again or reset your password.");
-                }
+//                 if (e.code === "auth/user-not-found") {
+//                     alert("The user is not found. Please double check your email address or create an account.");
+//                 } else if (e.code === "auth/wrong-password") {
+//                     alert("Your password is incorrect. Please try again or reset your password.");
+//                 }
                 
-            });
-    });
+//             });
+//     });
 
 
 
-    btnSignUp.addEventListener("click", e => {
+//     btnSignUp.addEventListener("click", e => {
 
-        userPassword = passwordValidate(userPasswordCreate.value, userPasswordAgain.value, e => {
+//         userPassword = passwordValidate(userPasswordCreate.value, userPasswordAgain.value, e => {
             
-            userEmail = userIDCreate.value;
-            userPassword = userPasswordAgain.value;
+//             userEmail = userIDCreate.value;
+//             userPassword = userPasswordAgain.value;
     
-            const promise = auth.createUserWithEmailAndPassword(userEmail, userPassword);
-            promise.catch(e => {
-                alert(e.message);
-            });
-        });
+//             const promise = auth.createUserWithEmailAndPassword(userEmail, userPassword);
+//             promise.catch(e => {
+//                 alert(e.message);
+//             });
+//         });
         
-    });
+//     });
 
 
 
-    btnSignOut.addEventListener("click", e => {
-        auth.signOut().then( e => {
-            loginBox.classList.remove("hide");
-            userEmail = "";
-            userPassword = "";
-            window.location.reload();
-        });
-    })
-}
+//     btnSignOut.addEventListener("click", e => {
+//         auth.signOut().then( e => {
+//             loginBox.classList.remove("hide");
+//             userEmail = "";
+//             userPassword = "";
+//             window.location.reload();
+//         });
+//     })
+// }
     
-if (state === "forgetPW") {
-    btnSendLink.addEventListener("click", e => {
-        userEmail = userEmailBox.value
-        if (userEmail.length > 3 && userEmail.includes('@')) {
-            auth.sendPasswordResetEmail(userEmail).then( () => {
-                alert("A password reset email has been sent to your email address. If you did not find it, please check your junk box.");   
-            }).catch( error => {
-                alert("The email address has not been registered. Please double check your input or create a new account.");
-            });
-        } else {
-            alert("Please double check the email address you entered.");
-        }
+// if (state === "forgetPW") {
+//     btnSendLink.addEventListener("click", e => {
+//         userEmail = userEmailBox.value
+//         if (userEmail.length > 3 && userEmail.includes('@')) {
+//             auth.sendPasswordResetEmail(userEmail).then( () => {
+//                 alert("A password reset email has been sent to your email address. If you did not find it, please check your junk box.");   
+//             }).catch( error => {
+//                 alert("The email address has not been registered. Please double check your input or create a new account.");
+//             });
+//         } else {
+//             alert("Please double check the email address you entered.");
+//         }
         
-    });
+//     });
 
-    btnChangePW.addEventListener("click", e => {
+//     btnChangePW.addEventListener("click", e => {
 
-    })
-}
+//     })
+// }
 
 
-firebase.auth().onAuthStateChanged(firebaseUser => {
-    if (firebaseUser) {
-        userID = firebaseUser.uid;
-        mcEmailField.value = firebaseUser.email;
-        loginBox.classList.add("hide");
-        loadUserInfo(userID);
-        loadProjects(userID);
-    } else {
-        console.log("Not logged in.");
-    }
-});
+// firebase.auth().onAuthStateChanged(firebaseUser => {
+//     if (firebaseUser) {
+//         userID = firebaseUser.uid;
+//         mcEmailField.value = firebaseUser.email;
+//         loginBox.classList.add("hide");
+//         loadUserInfo(userID);
+//         loadProjects(userID);
+//     } else {
+//         console.log("Not logged in.");
+//     }
+// });
