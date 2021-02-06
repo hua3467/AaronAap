@@ -408,7 +408,7 @@ const submitProfile = function () {
         userProfile['longtitude'] = longtitude;
         userProfile['latitude'] = latitude;
 
-        uploadeData("seasons" + userID + '/', "seasons", userProfile, userProfile.uid);
+        uploadeData("seasons/" + userID + '/', "seasons", userProfile, userProfile.uid);
 
     });
 
@@ -451,34 +451,6 @@ notifBar.addEventListener("click", e => {
 })
 
 
-
-
-// projectImage.addEventListener("change", e => {
-
-//     projectAttachmentTitle.innerHTML = e.target.files[0].name;
-//     btnAttach.innerHTML = "Remove Image";
-
-// });
-
-// btnAttach.addEventListener("click", e => {
-//     if (projectImageSelected) {
-//         // TODO: remove attached file.
-//         const confirmRemoveImg = confirm("Are you sure you want to remove this image?");
-//         if (confirmRemoveImg) {
-//             projectImage.value = "";
-//             btnAttach.innerHTML = "Select Image";
-//             projectAttachmentTitle.innerHTML = "No file has been selected yet.";
-//             project.image = "";
-//             console.log(project);
-//             projectImageSelected = !projectImageSelected;
-//         }
-
-//     } else {
-//         projectImage.click();
-//         projectImageSelected = !projectImageSelected;
-//     }
-
-// });
 
 window.addEventListener('beforeunload', e => {
     if (!isUserInfoSubmitted) {
