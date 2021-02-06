@@ -265,20 +265,25 @@ function readURL(input) {
         var reader = new FileReader();
 
         reader.onload = function (e) {
-            imagePreview.style = `background: url(${e.target.result}) #eee; background-size: contain; background-position: center top; background-repeat: no-repeat`;
+            document.querySelector("#videoSrc").src = e.target.result;
+            document.querySelector("#videoPlayer").load();
         }
 
         reader.readAsDataURL(input.files[0]);
     }
 }
 
+
+document.querySelector("#videoPlayer").onclick = function(){document.querySelector("#videoPlayer").play();}
+
 inputImage.onchange = function () {
-    if(this.files[0].size > 2097152) {
-        alert("The file is too big! The maximum accepted file size is 2MB.");
-       this.value = "";
-    } else {
-        readURL(this);
-    }
+    readURL(this);
+    // if(this.files[0].size > 2097152) {
+    //     alert("The file is too big! The maximum accepted file size is 2MB.");
+    //    this.value = "";
+    // } else {
+    //     readURL(this);
+    // }
 }
 
 const uploadImage = function (dbPath, imgStorePath, project, id) {
@@ -497,68 +502,39 @@ projectInfoItems.forEach(info => {
 
 });
 
-btnAddNew.addEventListener("click", e => {
-    submitProject();
-    btnAttach.innerHTML = "Select Image";
-    projectAttachmentTitle.innerHTML = "No file has been selected yet.";
-    projectImageSelected = false;
-});
-
 notifBar.addEventListener("click", e => {
     e.currentTarget.classList.add("hide");
 })
 
-btnEditSave.addEventListener("click", e => {
 
-    document.querySelector(`[data-pkey="${editingPid}"]`).parentNode.parentNode.remove();
-    submitProject(editingPid);
 
-    btnAttach.innerHTML = "Select Image";
-    projectAttachmentTitle.innerHTML = "No file has been selected yet.";
-    showEditBtn(false);
-    projectImageSelected = false;
 
-    projectInfoItems.forEach(item => {
-        item.value = '';
-    });
-});
+// projectImage.addEventListener("change", e => {
 
-btnEditCancel.addEventListener("click", e => {
-    projectInfoItems.forEach(item => {
-        item.value = '';
-    });
-    showEditBtn(false);
-    btnAttach.innerHTML = "Select Image";
-    projectAttachmentTitle.innerHTML = "No file has been selected yet.";
-    projectImageSelected = false;
-});
+//     projectAttachmentTitle.innerHTML = e.target.files[0].name;
+//     btnAttach.innerHTML = "Remove Image";
 
-projectImage.addEventListener("change", e => {
+// });
 
-    projectAttachmentTitle.innerHTML = e.target.files[0].name;
-    btnAttach.innerHTML = "Remove Image";
+// btnAttach.addEventListener("click", e => {
+//     if (projectImageSelected) {
+//         // TODO: remove attached file.
+//         const confirmRemoveImg = confirm("Are you sure you want to remove this image?");
+//         if (confirmRemoveImg) {
+//             projectImage.value = "";
+//             btnAttach.innerHTML = "Select Image";
+//             projectAttachmentTitle.innerHTML = "No file has been selected yet.";
+//             project.image = "";
+//             console.log(project);
+//             projectImageSelected = !projectImageSelected;
+//         }
 
-});
+//     } else {
+//         projectImage.click();
+//         projectImageSelected = !projectImageSelected;
+//     }
 
-btnAttach.addEventListener("click", e => {
-    if (projectImageSelected) {
-        // TODO: remove attached file.
-        const confirmRemoveImg = confirm("Are you sure you want to remove this image?");
-        if (confirmRemoveImg) {
-            projectImage.value = "";
-            btnAttach.innerHTML = "Select Image";
-            projectAttachmentTitle.innerHTML = "No file has been selected yet.";
-            project.image = "";
-            console.log(project);
-            projectImageSelected = !projectImageSelected;
-        }
-
-    } else {
-        projectImage.click();
-        projectImageSelected = !projectImageSelected;
-    }
-
-});
+// });
 
 window.addEventListener('beforeunload', e => {
     if (!isUserInfoSubmitted) {

@@ -112,6 +112,9 @@
                             <div id="inputContainer" class="input-container">
                                 <h4>Step 1. Upload a 5-second video.</h4>
                                 <p>By tapping the following button, you can record a video or select one from your phone.</p>
+                                <video id="videoPlayer" controls="controls">
+                                    <source id="videoSrc">
+                                </video>
                                 <input type="file" class="form-control-file profile-image user-info-items"
                                     name="image" id="fileImage" accept="video/*">
                             </div>
@@ -229,10 +232,7 @@
                 <div class="alert alert-warning" role="alert">
                     Please double check your information before submission.
                 </div>
-                
-
                     <button class="btn btn-primary btn-block" id="btnSubmit">Submit</button>
-
                 <br>
                 <hr>
         </div>
