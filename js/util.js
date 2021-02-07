@@ -12,6 +12,8 @@ var firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+const db = firebase.database();
+const storage = firebase.storage();
 
 const parseURL = function(url) {
     let pattern = /^((http|https|ftp):\/\/)/;

@@ -2,7 +2,9 @@
 const progressContainer = document.querySelector("#progressContainer");
 
 const uploadImage = function (dbPath, imgStorePath, project, id) {
+
     const imgFile = project.image;
+
     if (imgFile.name) {
 
         return new Promise((resolve, reject) => {
@@ -11,13 +13,11 @@ const uploadImage = function (dbPath, imgStorePath, project, id) {
             const uploadTask = storage.ref().child(imgStorePath + '/' + fileName).put(imgFile);
 
             uploadProgress.style = `width: 0%`;
-            // uploadProgress.innerHTML = '0%';
 
             uploadTask.on('state_changed', snapshot => {
 
                 let progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
                 uploadProgress.style = `width: ${progress}%`;
-                // uploadProgress.innerHTML = progress + '%';
                 progressContainer.classList.remove("hide");
 
             }, err => {
@@ -46,13 +46,16 @@ const uploadeData = function (dbPath, imgStorePath, dataObj, fileID) {
     delete clearedData.image;
 
     db.ref(dbPath).update(clearedData);
+    uploadImage(dbPath, imgStorePath, dataObj, fileID);
 
-
-    if (dataObj.image === '') {
-        db.ref(dbPath + "image").set("");
-    } else {
-        uploadImage(dbPath, imgStorePath, dataObj, fileID);
-    }
     console.log(dataObj);
 
+};
+
+const deleteImage = function (fileName) {
+    storage.ref().child(imagePath + '/' + fileName).delete().then(() => {
+        console.log("Image deleted!");
+    }).catch(error => {
+        console.log(error);
+    });
 };

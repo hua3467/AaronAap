@@ -72,13 +72,6 @@ map.addControl(
 
 // map.addControl(new mapboxgl.FullscreenControl());
 
-const parseURL = function (url) {
-  let pattern = /^((http|https|ftp):\/\/)/;
-  if (!pattern.test(url)) {
-    url = "https://" + url;
-  }
-  return url;
-};
 
 let zoomToBounds = function (data) {
   console.log(data);
@@ -165,11 +158,12 @@ let addMarker = function (markerData) {
 };
 
 let addUserMarker = function (data) {
+  console.log(data);
   const ele = document.createElement("div");
   ele.className = "userMarker";
-  if (data.properties.image) {
+
     ele.style = `background-image: url(${data.properties.image})`;
-  }
+
 
   var popupUser = new mapboxgl.Popup().setHTML(
     popupContent(data.properties)
@@ -393,7 +387,6 @@ let clickName = function (geoData, projects, people) {
         removeAllUserMarker();
         removeAllLayers();
 
-        geoData.features = projects.features.filter((project) => project.properties.uid === name.id);
         const selectedPepole = people.filter((p) => p.features[0].properties.uid === name.id);
 
         addMarker(selectedPepole[0]);
@@ -427,28 +420,17 @@ map.on("load", function () {
 
   addMarker(sodaa);
 
-  db.ref("alumninetwork")
+  db.ref("seasons")
     .once("value")
     .then((snapshot) => {
-      const peopleData = Object.values(snapshot.val()["user"]);
-      const projectData = Object.values(snapshot.val()["projects"]);
+      const peopleData = Object.values(snapshot.val());
 
       const projects = {
         features: [],
         type: "FeatureCollection",
       };
 
-      projectData.forEach((data) => {
-        let newFeature = {
-          geometry: {
-            coordinates: [data.longtitude, data.latitude],
-            type: "Point",
-          },
-          properties: data,
-          type: "Feature",
-        };
-        projects.features.push(newFeature);
-      });
+      console.log(peopleData);
 
       const people = [];
 

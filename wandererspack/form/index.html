@@ -9,7 +9,6 @@
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css?v=3">
     <link rel="shortcut icon" href="/favicon.ico">
-
 </head>
 
 
@@ -51,8 +50,8 @@
                         <div class="col-4 d-flex align-items-end image-preview" id="imagePreview">
 
                             <div id="inputContainer" class="input-container">
-                                <label for="profileImage">Destination Picture</label>
-                                <input type="file" class="form-control-file profile-image user-info-items" name="image"
+                                <label for="profileImage">Destination Picture<span class="red">*</span></label>
+                                <input type="file" class="form-control-file profile-image user-info-items required-user-item" name="image"
                                     id="fileImage" accept=".jpg,.jpeg,.png,.gif,.PJG,.JPEG,.PNG,.GIF,.svg,.SVG">
                             </div>
 
@@ -85,7 +84,7 @@
                                 <div class="col">
                                     <label for="userCity">City<span class="red">*</span></label>
                                     <input type="text" class="form-control user-info-items required-user-item"
-                                        name="userCity" value="Fargo" required>
+                                        name="userCity" value="" required>
                                 </div>
                                 <div class="col">
                                     <label for="userState">State<span class="red">*</span></label>
@@ -127,7 +126,7 @@
                                         <option value="NM">NM</option>
                                         <option value="NY">NY</option>
                                         <option value="NC">NC</option>
-                                        <option value="ND" selected>ND</option>
+                                        <option value="ND">ND</option>
                                         <option value="OH">OH</option>
                                         <option value="OK">OK</option>
                                         <option value="OR">OR</option>
@@ -150,7 +149,7 @@
                                 <div class="col">
                                     <label for="userCountry">Country<span class="red">*</span></label>
                                     <input type="text" class="form-control user-info-items required-user-item"
-                                        name="userCountry" value="USA" required>
+                                        name="userCountry" value="" required>
                                 </div>
                             </div>
 
@@ -160,23 +159,23 @@
 
                     <br>
                     <div class="">
-                        <label for="form_bagitems">What are you bringing?</label>
-                        <textarea class="form-control user-info-items" rows="5" name="form_bagitems"
+                        <label for="form_bagitems">What are you bringing?<span class="red">*</span></label>
+                        <textarea class="form-control user-info-items required-user-item" rows="5" name="form_bagitems"
                             placeholder=""></textarea>
                     </div>
                    <div class="">
-                        <label for="form_who">Who are you going to bring?</label>
-                        <textarea class="form-control user-info-items" rows="5" name="form_who"
+                        <label for="form_who">Who are you going to bring?<span class="red">*</span></label>
+                        <textarea class="form-control user-info-items required-user-item" rows="5" name="form_who"
                             placeholder=""></textarea>
                     </div>
                     <div class="">
-                        <label for="form_what">What are you going to see?</label>
-                        <textarea class="form-control user-info-items" rows="5" name="form_what"
+                        <label for="form_what">What are you going to see?<span class="red">*</span></label>
+                        <textarea class="form-control user-info-items required-user-item" rows="5" name="form_what"
                             placeholder=""></textarea>
                     </div>
                     <div class="">
-                        <label for="form_story">Story of why you are going.</label>
-                        <textarea class="form-control user-info-items" rows="5" name="form_story"
+                        <label for="form_story">Story of why you are going.<span class="red">*</span></label>
+                        <textarea class="form-control user-info-items required-user-item" rows="5" name="form_story"
                             placeholder=""></textarea>
                     </div>
 
