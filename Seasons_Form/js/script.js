@@ -111,9 +111,6 @@ function readURL(input) {
     }
 }
 
-
-document.querySelector("#videoPlayer").onclick = function(){document.querySelector("#videoPlayer").play();}
-
 inputImage.onchange = function () {
     readURL(this);
     // if(this.files[0].size > 2097152) {
