@@ -14,7 +14,6 @@
     <p id="colorCode" class="hide"></p>
     <script>
 
-
         const colorList = [
 
         ];
@@ -26,7 +25,7 @@
         const urlParams = new URLSearchParams(queryString);
         const currentColor = '#' + urlParams.get("color");
 
-        for( let i = 0; i < 400; i++) {
+        for( let i = 0; i < 1000; i++) {
             colorList.push(`rgb(${Math.random() * (255 - 0) + 0}, ${Math.random() * (255 - 0) + 0}, ${Math.random() * (255 - 0) + 0})`)
         }
         
@@ -38,8 +37,8 @@
         });
 
         const myBox = document.createElement('div');
-        myBox.className = "box";
-        myBox.style = `height: 40px; width: 40px; margin: 0; border: 2px solid black; display:inline-block; background-color: ${currentColor}`;
+        myBox.className = "color-box";
+        myBox.style = `background-color: ${currentColor}`;
         colorGrid.append(myBox);
 
         document.querySelector("#colorCode").innerHTML = urlParams.get("color");
