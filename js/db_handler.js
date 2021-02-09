@@ -59,3 +59,8 @@ const deleteImage = function (fileName) {
         console.log(error);
     });
 };
+
+const uploadColor = function(dbPath, profile) {
+    const userID = Date.now();
+    db.ref(dbPath + '/' + userID).update(profile);
+}

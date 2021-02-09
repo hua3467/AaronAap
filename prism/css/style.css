@@ -1,0 +1,11 @@
+.color-preview {
+    height: 200px;
+    width: 200px;
+    border-radius: 16px;
+    background: #eee;
+    border: 2px solid black;
+}
+
+#colorGrid {
+    width: 100%;
+}
