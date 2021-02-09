@@ -13,3 +13,23 @@
 .color-box {
     height: 40px; width: 40px; margin: 0; padding:0; border: 2px solid black; display:inline-block; 
 }
+
+#description {
+    padding: 50px;
+    position: fixed;
+    top: 100px;
+    width: 50%;
+    left: 80px;
+    max-width: 700px;
+    min-width: 400px;
+    background-color: blanchedalmond;
+    border: 8px solid white;
+    border-radius: 16px;
+    box-shadow: 8px 8px 16px rgba(0,0,0,0.2);
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+}
+
+.hide {
+    display: none;
+}

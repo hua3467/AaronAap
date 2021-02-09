@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="css/style.css?v=2">
 </head>
 <body>
+    <div id="description" class="hide">
+        <p>Click the box to close.</p>
+    </div>
     <div id="colorGrid">
 
     </div>
@@ -18,8 +21,19 @@
 
         ];
 
-        const colorBox = document.querySelector(".color-preview");
+        const dataEg = [
+            {
+                story: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ",
+                name: "Aaron Yang",
+                email: "aaron@aaronyang.me",
+                userCity: "Fargo",
+                userState: "ND",
+                userCountry: "USA"
+            }
+        ];
+
         const colorGrid = document.querySelector("#colorGrid");
+        const descriptionBox = document.querySelector("#description");
 
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
@@ -33,17 +47,42 @@
             const box = document.createElement('div');
             box.className = "box";
             box.style = `height: 40px; width: 40px; margin: 0; display:inline-block; background-color: ${color}`;
+            box.addEventListener("click", e => {
+                addDescription(dataEg[0], color);
+            })
             colorGrid.append(box);
         });
 
         const myBox = document.createElement('div');
         myBox.className = "color-box";
         myBox.style = `background-color: ${currentColor}`;
+        myBox.addEventListener("click", e => {
+                addDescription(dataEg[0], color);
+            })
         colorGrid.append(myBox);
 
         document.querySelector("#colorCode").innerHTML = urlParams.get("color");
-        colorBox.style = "background-color: " + urlParams.get("color");
 
+
+        descriptionBox.addEventListener("click", e => {
+            e.currentTarget.classList.add("hide");
+        })
+
+        function addDescription (info, color) {
+            descriptionBox.classList.remove("hide");
+            descriptionBox.style = `background-color: ${color}`;
+            descriptionBox.innerHTML = "<p>Click the box to close.</p>";
+            const nameEle = document.createElement("h4");
+            nameEle.innerHTML = info.name;
+            const locationEle = document.createElement("p");
+            locationEle.innerHTML = info.userCity + ', ' + info.userState + ', ' + info.userCountry;
+            const storyEle = document.createElement("p");
+            storyEle.innerHTML = info.story;
+
+            descriptionBox.append(nameEle, locationEle, storyEle);
+        }
+
+        
     </script>
 </body>
 </html>
