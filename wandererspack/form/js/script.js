@@ -142,11 +142,11 @@ bagItems.forEach( (item, i) => {
         if ( e.target.value.length > 1 ) {
             bagContainer[i] = e.target.value;
             console.log(bagContainer);
-            fill.style = `height: ${ Object.values(bagContainer).length / 10 * bagImg.offsetHeight}px`;
+            fill.style = `height: ${ Object.values(bagContainer).length / bagItems.length * bagImg.offsetHeight}px`;
         } else {
             delete bagContainer[i];
             console.log(bagContainer);
-            fill.style = `height: ${ Object.values(bagContainer).length / 10 * bagImg.offsetHeight}px`;
+            fill.style = `height: ${ Object.values(bagContainer).length / bagItems.length * bagImg.offsetHeight}px`;
         }
     });
 })
