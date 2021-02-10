@@ -24,6 +24,7 @@ let userProfile = {
     uid: userID,
     image: "http://map.ndsusodaa.com/sodaapeople/images/img_placeholder.png"
 };
+
 const bagContainer = {};
 
 const showNotification = function (message) {
