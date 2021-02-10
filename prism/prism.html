@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="css/style.css?v=2">
 </head>
 <body>
-    <div id="description" class="hide">
-        <p>Click the box to close.</p>
+    <div id="description" class="">
+        <p>Click the box to close. The content will be updated according to the user input.</p>
     </div>
     <div id="colorGrid">
 
@@ -38,6 +38,9 @@
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
         const currentColor = '#' + urlParams.get("color");
+
+        addDescription(dataEg[0], currentColor);
+
 
         for( let i = 0; i < 1000; i++) {
             colorList.push(`rgb(${Math.random() * (255 - 0) + 0}, ${Math.random() * (255 - 0) + 0}, ${Math.random() * (255 - 0) + 0})`)
@@ -71,7 +74,7 @@
         function addDescription (info, color) {
             descriptionBox.classList.remove("hide");
             descriptionBox.style = `background-color: ${color}`;
-            descriptionBox.innerHTML = "<p>Click the box to close.</p>";
+            descriptionBox.innerHTML = "<p>Click the box to close. The content will be updated according to the user input.</p>";
             const nameEle = document.createElement("h4");
             nameEle.innerHTML = info.name;
             const locationEle = document.createElement("p");
