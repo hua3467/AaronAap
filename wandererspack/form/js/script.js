@@ -6,6 +6,10 @@ const userRequiredInfo = document.querySelectorAll(".required-user-item");
 const imagePreview = document.querySelector("#imagePreview");
 const inputImage = document.querySelector("#fileImage");
 
+const bagItems = document.querySelectorAll(".bag-item");
+const bagImg = document.querySelector("#bagImg");
+const fill = document.querySelector("#fill");
+
 const uploadProgress = document.querySelector(".progress-bar");
 const uploadOverlay = document.querySelector(".overlay-full");
 const notifBar = document.querySelector("#notifBar");
@@ -15,11 +19,12 @@ let isUserInfoSubmitted = true;
 let userID = Date.now();
 
 
+
 let userProfile = {
     uid: userID,
     image: "http://map.ndsusodaa.com/sodaapeople/images/img_placeholder.png"
 };
-
+const bagContainer = {};
 
 const showNotification = function (message) {
     notifBar.classList.remove("hide");
@@ -131,3 +136,17 @@ window.addEventListener('beforeunload', e => {
         e.returnValue = "Your information is not submitted. Are you sure you want to leave?";
     }
 });
+
+bagItems.forEach( (item, i) => {
+    item.addEventListener("change", e => {
+        if ( e.target.value.length > 1 ) {
+            bagContainer[i] = e.target.value;
+            console.log(bagContainer);
+            fill.style = `height: ${ Object.values(bagContainer).length / 10 * bagImg.offsetHeight}px`;
+        } else {
+            delete bagContainer[i];
+            console.log(bagContainer);
+            fill.style = `height: ${ Object.values(bagContainer).length / 10 * bagImg.offsetHeight}px`;
+        }
+    });
+})

@@ -83,12 +83,19 @@ form {
     margin-bottom: 50px;
 }
 
-#videoPlayer {
-    background: rgb(65, 65, 65);
+#bagImg {
+    background: #aaa;
     width: 100%;
-    height: auto;
+    height: 100%;
+    position: relative;
 }
-
+#fill {
+    position: absolute;
+    background: chartreuse;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
 
 #notifBar {
     width: 100%;
