@@ -59,16 +59,9 @@ var map = new mapboxgl.Map({
   container: "map",
   style: "mapbox://styles/aayang/ckhe5w9l707zu19obadmd6z7c",
   center: [-96.779, 46.878],
-  zoom: 4.5,
+  zoom: 3.5,
 });
 
-// Add geolocate control to the map.
-map.addControl(
-  new MapboxGeocoder({
-    accessToken: mapboxgl.accessToken,
-    mapboxgl: mapboxgl,
-  })
-);
 
 // map.addControl(new mapboxgl.FullscreenControl());
 
@@ -112,14 +105,22 @@ let zoomToBounds = function (data) {
 }
 
 const popupContent = function (properties) {
-  let userName = properties.website !== "" ?
-    `<h5><a href="${parseURL(properties.website)}" target="_blank" style="color: black">${properties.fname} ${properties.lname} <span style="font-size: 0.5em; vertical-align:top;"><i class="fas fa-external-link-alt"></i></span></a></h5>` :
-    `<h5>${properties.fname} ${properties.lname}</h5>`;
 
-  return `${userName}
-          <p class="line-narrow"><span class="icon-lead"><i class="fas fa-building"></i></span>${properties.title} | ${properties.company}</p>
+  return `<h5>${properties.fname} ${properties.lname}</h5>
           <p class="line-narrow"><span class="icon-lead"><i class="fas fa-map-marker-alt"></i></span>${properties.userCity},${properties.userState}, ${properties.userCountry}</p>
-          <div class="about-user">${properties.about}</div>`;
+          <p class="line-narrow"><span class="icon-lead"><i class="fas fa-building"></i></span>I'm here to see ${properties.form_what} with ${properties.form_who}</p>
+          <div class="about-user">
+            <img src=${properties.image}/>
+            <p>${properties.form_story}</p>
+            <p><b>Backpack: </b></p>
+            <ul>
+              <li>${properties["item-1"]}</li>
+              <li>${properties["item-2"]}</li>
+              <li>${properties["item-3"]}</li>
+              <li>${properties["item-4"]}</li>
+              <li>${properties["item-5"]}</li>
+            </ul>
+          </div>`;
 }
 
 let addMarker = function (markerData) {
@@ -255,26 +256,26 @@ let loadPeopleList = function (peopleData, projects) {
 
   removeAllLayers();
 
-  map.addSource('lines', {
-    'type': 'geojson',
-    'data': lineLayer
-  });
+  // map.addSource('lines', {
+  //   'type': 'geojson',
+  //   'data': lineLayer
+  // });
 
-  map.addLayer({
-    'id': 'net-lines',
-    'type': 'line',
-    'source': 'lines',
-    'layout': {
-      'line-join': 'round',
-      'line-cap': 'round'
-    },
-    'paint': {
-      'line-color': '#FFCC00',
-      'line-width': 1,
-      'line-opacity': 0.3,
-      'line-dasharray': [1, 2]
-    }
-  });
+  // map.addLayer({
+  //   'id': 'net-lines',
+  //   'type': 'line',
+  //   'source': 'lines',
+  //   'layout': {
+  //     'line-join': 'round',
+  //     'line-cap': 'round'
+  //   },
+  //   'paint': {
+  //     'line-color': '#FFCC00',
+  //     'line-width': 1,
+  //     'line-opacity': 0.3,
+  //     'line-dasharray': [1, 2]
+  //   }
+  // });
 
 };
 
@@ -420,7 +421,7 @@ map.on("load", function () {
 
   addMarker(sodaa);
 
-  db.ref("seasons")
+  db.ref("wanderer")
     .once("value")
     .then((snapshot) => {
       const peopleData = Object.values(snapshot.val());
