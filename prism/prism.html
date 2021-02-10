@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="css/style.css?v=2">
 </head>
 <body>
+    <div id="control">
+        <h3>Change the shape:</h3>
+        <button id="btnCircle">Circle</button>
+        <button id="btnSquare">Square</button>
+    </div>
     <div id="description" class="">
         <p>Click the box to close. The content will be updated according to the user input.</p>
     </div>
@@ -34,6 +39,8 @@
 
         const colorGrid = document.querySelector("#colorGrid");
         const descriptionBox = document.querySelector("#description");
+        const btnCircle = document.querySelector("#btnCircle");
+        const btnSquare = document.querySelector("#btnSquare");
 
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
@@ -69,6 +76,20 @@
 
         descriptionBox.addEventListener("click", e => {
             e.currentTarget.classList.add("hide");
+        })
+
+        btnSquare.addEventListener("click", e => {
+            document.querySelectorAll(".color-box").forEach( box => {
+                box.classList.remove("shap-circle");
+                box.classList.add("shape-sqaure");
+            })
+        });
+
+        btnCircle.addEventListener("click", e => {
+            document.querySelectorAll(".color-box").forEach( box => {
+                box.classList.add("shap-circle");
+                box.classList.remove("shape-sqaure");
+            })
         })
 
         function addDescription (info, color) {

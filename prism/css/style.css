@@ -16,17 +16,36 @@
     margin: 2px 4px; 
     padding:0;  
     display:inline-block; 
-
 }
 
+
+#control {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+#control button {
+    width: 80px;
+    margin: 20px;;
+}
 .user-color-box {
     border: 2px solid black;
+}
+
+.shap-circle {
+    border-radius: 20px;
+}
+
+.shap-sqaure {
+    border-radius: 0;
 }
 
 #description {
     padding: 50px;
     position: fixed;
-    top: 100px;
+    top: 160px;
     width: 50%;
     left: 80px;
     max-width: 700px;
