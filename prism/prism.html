@@ -48,8 +48,8 @@
         
         colorList.forEach( color => {
             const box = document.createElement('div');
-            box.className = "box";
-            box.style = `height: 40px; width: 40px; margin: 0; display:inline-block; background-color: ${color}`;
+            box.className = "color-box";
+            box.style = `background-color: ${color}`;
             box.addEventListener("click", e => {
                 addDescription(dataEg[0], color);
             })
@@ -57,7 +57,7 @@
         });
 
         const myBox = document.createElement('div');
-        myBox.className = "color-box";
+        myBox.className = "color-box user-color-box";
         myBox.style = `background-color: ${currentColor}`;
         myBox.addEventListener("click", e => {
                 addDescription(dataEg[0], color);

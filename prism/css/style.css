@@ -11,7 +11,16 @@
 }
 
 .color-box {
-    height: 40px; width: 40px; margin: 0; padding:0; border: 2px solid black; display:inline-block; 
+    height: 40px; 
+    width: 40px; 
+    margin: 2px 4px; 
+    padding:0;  
+    display:inline-block; 
+
+}
+
+.user-color-box {
+    border: 2px solid black;
 }
 
 #description {
