@@ -52,8 +52,7 @@ const sodaa = {
 // TO MAKE THE MAP APPEAR YOU MUST
 // ADD YOUR ACCESS TOKEN FROM
 // https://account.mapbox.com
-mapboxgl.accessToken =
-  "pk.eyJ1IjoiYWF5YW5nIiwiYSI6ImNrY3RxeXp5OTBqdHEycXFscnV0czY4ajQifQ.jtVkyvY29tGsCZSQlELYDA";
+mapboxgl.accessToken = "pk.eyJ1IjoiYWF5YW5nIiwiYSI6ImNrY3RxeXp5OTBqdHEycXFscnV0czY4ajQifQ.jtVkyvY29tGsCZSQlELYDA";
 
 var map = new mapboxgl.Map({
   container: "map",
@@ -106,20 +105,12 @@ let zoomToBounds = function (data) {
 
 const popupContent = function (properties) {
 
-  return `<h5>${properties.fname} ${properties.lname}</h5>
+  return `<h5>${properties.fname}</h5>
           <p class="line-narrow"><span class="icon-lead"><i class="fas fa-map-marker-alt"></i></span>${properties.userCity},${properties.userState}, ${properties.userCountry}</p>
-          <p class="line-narrow"><span class="icon-lead"><i class="fas fa-building"></i></span>I'm here to see ${properties.form_what} with ${properties.form_who}</p>
           <div class="about-user">
-            <img src=${properties.image}/>
-            <p>${properties.form_story}</p>
+          <video id="videoPlayer" controls="controls" src=${properties.image}><source id="videoSrc"></video>
+            <p>${properties.about}</p>
             <p><b>Backpack: </b></p>
-            <ul>
-              <li>${properties["item-1"]}</li>
-              <li>${properties["item-2"]}</li>
-              <li>${properties["item-3"]}</li>
-              <li>${properties["item-4"]}</li>
-              <li>${properties["item-5"]}</li>
-            </ul>
           </div>`;
 }
 
@@ -163,7 +154,7 @@ let addUserMarker = function (data) {
   const ele = document.createElement("div");
   ele.className = "userMarker";
 
-    ele.style = `background-image: url(${data.properties.image})`;
+  ele.style = `background-image: url("video_icon.png")`;
 
 
   var popupUser = new mapboxgl.Popup().setHTML(
@@ -419,9 +410,7 @@ let clickName = function (geoData, projects, people) {
 
 map.on("load", function () {
 
-  addMarker(sodaa);
-
-  db.ref("wanderer")
+  db.ref("seasons")
     .once("value")
     .then((snapshot) => {
       const peopleData = Object.values(snapshot.val());

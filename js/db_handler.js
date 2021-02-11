@@ -61,6 +61,17 @@ const deleteImage = function (fileName) {
 };
 
 const uploadColor = function(dbPath, profile) {
-    const userID = Date.now();
-    db.ref(dbPath + '/' + userID).update(profile);
+    db.ref(dbPath + '/' + profile.uid).update(profile);
 }
+
+const getColorInfo = function(dbPath, uid, callback) {
+    db.ref(dbPath + '/' + uid).once("value").then( snapshot => {
+        callback(snapshot.val());
+    });
+};
+
+const getColor = function(dbPath, callback) {
+    db.ref(dbPath).once("value").then( snapshot => {
+        callback(snapshot.val());
+    });
+};

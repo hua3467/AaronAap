@@ -9,7 +9,8 @@ const profile = {
     email: "",
     userCity: "",
     userState: "",
-    userCountry: ""
+    userCountry: "",
+    uid: 'u' + Date.now()
 };
 
 // Box & hue slider
@@ -46,15 +47,14 @@ colorPicker.on('color:change', function(color) {
       item.addEventListener("change", e => {
           profile[e.target.name] = e.target.value;
       });
-  })
+  });
 
 
   btnNext.addEventListener( "click", e => {
       if(profile.color === "") {
           alert("Please select your color!");
       } else {
-          uploadColor("prism",profile);
-          window.location.href = `prism.html?color=${profile.color.substring(1)}`
+          uploadColor("prism", profile);
+          window.location.href = `prism.html?color=${profile.color.substring(1)}&uid=${profile.uid}`;
       }
-    
-  })
+  });
