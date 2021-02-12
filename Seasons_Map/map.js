@@ -110,7 +110,6 @@ const popupContent = function (properties) {
           <div class="about-user">
           <video id="videoPlayer" controls="controls" src=${properties.image}><source id="videoSrc"></video>
             <p>${properties.about}</p>
-            <p><b>Backpack: </b></p>
           </div>`;
 }
 
