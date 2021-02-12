@@ -1,9 +1,15 @@
+
+
+label {
+    color: rgb(203, 203, 203);
+}
+
 .color-preview {
     height: 200px;
     width: 200px;
     border-radius: 16px;
     background: #eee;
-    border: 2px solid black;
+    border: 2px solid rgb(255, 255, 255);
 }
 
 #colorGrid {
@@ -38,7 +44,7 @@
 
 
 .user-color-box {
-    border: 2px solid black;
+    border: 2px solid rgb(0, 0, 0);
 }
 
 .shap-circle {
@@ -68,8 +74,13 @@
 #colorContainer {
     margin: 0 80px;
     padding: 40px;
-    border: 4px solid #444;
+    border: 4px solid rgb(255, 255, 255);
     border-radius: 12px;
+}
+#colorInput {
+    margin-top: 10px;
+    width: 200px;
+    border: none;
 }
 
 .hide {

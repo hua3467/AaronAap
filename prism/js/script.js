@@ -1,6 +1,10 @@
 const colorPreview = document.querySelector(".color-preview");
 const btnNext = document.querySelector("#btnNext");
 const inputs = document.querySelectorAll(".user-info-items");
+const requiredItems = document.querySelectorAll(".required-user-item");
+const colorInput = document.querySelector("#colorInput");
+const btnHasAccount = document.querySelector("#hasAccount");
+const accountInfo = document.querySelector("#accountInfo");
 
 const profile = {
     color: "",
@@ -10,7 +14,8 @@ const profile = {
     userCity: "",
     userState: "",
     userCountry: "",
-    uid: 'u' + Date.now()
+    uid: 'u' + Date.now(),
+    hasAccount: false
 };
 
 // Box & hue slider
@@ -18,7 +23,7 @@ var colorPicker = new iro.ColorPicker("#picker", {
     width: 200,
     color: "rgb(255, 255, 255)",
     borderWidth: 2,
-    borderColor: "#000",
+    borderColor: "#fff",
     layout: [
       {
         component: iro.ui.Box,
@@ -41,6 +46,7 @@ colorPicker.on('color:change', function(color) {
     profile.color = color.hexString;
     colorPreview.style = "background-color:" + color.hexString;
     // document.body.style = "background-color:" + color.hexString;
+    colorInput.value = color.hexString;
   });
 
   inputs.forEach( item => {
@@ -54,7 +60,25 @@ colorPicker.on('color:change', function(color) {
       if(profile.color === "") {
           alert("Please select your color!");
       } else {
+        if (!isInputFilled(requiredItems)) {
+          console.log(profile);
           uploadColor("prism", profile);
           window.location.href = `prism.html?color=${profile.color.substring(1)}&uid=${profile.uid}`;
+        } else {
+          alert("Personal Color Title and Reason is required.");
+        }
+          
       }
   });
+
+  btnHasAccount.addEventListener( "change", e => {
+    profile.hasAccount = e.target.checked;
+
+    if (profile.hasAccount) {
+      accountInfo.classList.remove("hide");
+    } else {
+      accountInfo.classList.add("hide");
+    }
+    
+
+  })

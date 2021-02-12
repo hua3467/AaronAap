@@ -12,6 +12,15 @@
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="#" target="_blank">Not a Link</a>
+            </li>
+        </ul>
+
+    </nav>
 
     <div id="control">
         <p>Display Options</p>
@@ -95,7 +104,6 @@
 
         getColor("prism", (data) => {
             Object.values(data).forEach( profile => {
-                console.log(profile);
                 makeColorBox(profile);
             })
         });
@@ -143,8 +151,8 @@
             box.style = `background-color: ${profile.color}`;
             box.addEventListener("click", e => {
                 addDescription(profile, profile.color);
-                descriptionBox.style.left = e.pageX + "px";
-                descriptionBox.style.top = e.pageY + "px";
+                // descriptionBox.style.left = e.pageX + "px";
+                // descriptionBox.style.top = e.pageY + "px";
             })
             colorGrid.append(box);
         }

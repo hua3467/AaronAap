@@ -24,7 +24,8 @@ const parseURL = function(url) {
 }
 
 let isInputFilled = function(form){
-    const items = [...form]
+    const items = [...form];
+    console.log(items.some( input => input.value.length < 1));
     return items.some( input => input.value.length < 1);
 }
 
