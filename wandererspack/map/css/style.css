@@ -35,85 +35,10 @@ nav {
 nav .logo img{
     height: 28px;
 }
-nav .button-primary {
-    height: 28px;
-    padding: 4px 16px;
-    line-height: 1em;
-    margin-left: 20px;
-}
-.nav-item {
-    color: white;
-    margin-right: 16px;
-    padding-bottom: 6px;
-}
-.nav-item:hover {
-    color: #ffcc00;
-    text-decoration: none;
-}
-.header {
-    position: relative;
-    color: white;
-    margin-bottom: 80px;
-    padding-top: 60px;
-}
-.header-content {
-    display: flex;
-    width: 100%;
-    position: absolute;
-    justify-content: center;
-}
-.header h1 {
-    text-align: center;
-    font-size: 3em;
-    font-weight: bold;
-    text-shadow: 2px 2px 12px rgba(0, 28, 10, 0.486);
-    margin-top: 35vh;
-    z-index: 100;
-}
-.image-matrix {
-    display: flex;
-    flex-wrap: wrap;
-    width: 90%;
-    height: 80vh;
-    margin-left: auto;
-    margin-right: auto;
-    justify-content: center;
-    opacity: 0.3;
-    z-index: 10;
-}
-.single-image {
-    width: 20%;
-    height: 40vh;
-    margin: 0;
-    transition: 0.75s;
-}
-.button-primary {
-    background: #ffcc00;
-    color: rgb(0, 0, 0);
-    padding: 10px 16px;
-    border-radius: 6px;
-    text-decoration: none;
-    display: inline-block;
-    z-index: 110;
-}
-
-#toMap {
-    position: absolute;
-    top: calc(35vh + 80px);
-}
 .button-primary .fas {
     font-size: 1em;
 }
-#scrollDown {
-    color: white;
-    height: 80px;
-    width: 40px;
-    border: 1px solid #fff;
-    display: inline-block;
-    border-radius: 20px;
-    text-align: center;
-    padding-top: 30px;
-}
+
 
 
 
@@ -268,18 +193,7 @@ ul {
     background: white;
     border-radius: 6px;
 }
-.ppl-card-header {
-}
-.ppl-card-cover {
-    height: 44px;
-    width: 44px;
-    border-radius: 50%;
-    border: 1px solid #006633;
-}
-.ppl-card-title {
-    margin-left: 10px;
-    width: 200px;
-}
+
 .ppl-card-title .ppl-name{
     font-weight: 700;
     margin-bottom: 4px;
@@ -298,17 +212,7 @@ ul {
     justify-content: space-between;
     width: 100%;
 }
-.ppl-card-title .ppl-title {
-    font-size: 0.7em;
-    color: #888;
-}
-.ppl-name:hover {
-    cursor: pointer;
-    color: #ffcc00;
-}
-.ppl-card-active {
-    border: 1px solid #006633;
-}
+
 
 
 
