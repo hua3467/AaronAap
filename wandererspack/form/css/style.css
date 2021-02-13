@@ -88,6 +88,14 @@ form {
 }
 
 #bagImg {
+    mask-image: url(../../Backpack.svg);
+    -webkit-mask-image: url(../../Backpack.svg);
+    mask-repeat:no-repeat;
+    -webkit-mask-repeat: no-repeat;
+    mask-size:contain;
+    -webkit-mask-size:contain;
+    mask-position:center;
+    -webkit-mask-position:center;
     background: #aaa;
     width: 100%;
     height: 100%;
@@ -95,7 +103,7 @@ form {
 }
 #fill {
     position: absolute;
-    background: chartreuse;
+    background: rgb(0, 123, 70);
     bottom: 0;
     left: 0;
     right: 0;
@@ -390,9 +398,7 @@ td {
 .attachmentContainer {
     margin-top: 8px;
 }
-#btnAttach {
 
-}
 #attachmentTitle {
     display: inline-block;
 }
