@@ -70,15 +70,3 @@ colorPicker.on('color:change', function(color) {
           
       }
   });
-
-  btnHasAccount.addEventListener( "change", e => {
-    profile.hasAccount = e.target.checked;
-
-    if (profile.hasAccount) {
-      accountInfo.classList.remove("hide");
-    } else {
-      accountInfo.classList.add("hide");
-    }
-    
-
-  })
