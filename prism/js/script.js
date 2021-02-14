@@ -44,8 +44,16 @@ var colorPicker = new iro.ColorPicker("#picker", {
 colorPicker.on('color:change', function(color) {
     // log the current color as a HEX string
     profile.color = color.hexString;
-    colorPreview.style = "background-color:" + color.hexString;
-    // document.body.style = "background-color:" + color.hexString;
+    
+    
+    if (color.hexString > "#888888") {
+      colorPreview.style = "color: black; background-color:" + color.hexString;
+      btnNext.style = "color: black; background-color:" + color.hexString;
+    } else {
+      colorPreview.style = "color: white; background-color:" + color.hexString;
+      btnNext.style = "color: white; background-color:" + color.hexString;
+    }
+
     colorInput.value = color.hexString;
   });
 

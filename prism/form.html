@@ -30,19 +30,36 @@
         </div>
     </div>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-white bg-white">
 
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="#" target="_blank">Not a Link</a>
-            </li>
-        </ul>
+        <!--  Show this only on mobile to medium screens  -->
+          <a class="navbar-brand d-lg-none" href="#">Navbar</a>
+        
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        
+        <!--  Use flexbox utility classes to change how the child elements are justified  -->
+          <div class="collapse navbar-collapse justify-content-between" id="navbarToggle">
+        
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" href="index.html">&#8592; Introduction </a>
+              </li>
+            </ul>
 
-        <div>
-            <a href="prism.html" target="_blank">View the Prism</a>
-        </div>
+        <!--   Show this only lg screens and up   -->
+        <img src="logo_graph.png" alt="">
+ 
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="prism.html">Prism &#8594;</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
 
-    </nav>
+
     <br>
     <main class="container">
 
@@ -183,7 +200,7 @@
                         <br>
                         <div class="row">
                             <div class="col">
-                                <button class="btn btn-primary btn-block" id="btnNext">Save my Color</button>
+                                <button class="btn btn-secondary btn-block" id="btnNext"><b>Save my Color</b></button>
                             </div>
                         </div>
 
