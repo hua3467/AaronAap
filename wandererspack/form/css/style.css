@@ -18,6 +18,15 @@ main {
     height: 100vh;
     z-index: 10;
 }
+.navbar {
+    display: flex;
+    justify-content: space-between;
+}
+.navbar h2{
+    font-size: 1.6em;
+    padding-top: 10px;
+    font-weight: 300;
+}
 aside {
     position: absolute;
     top: var(--side-margin);
