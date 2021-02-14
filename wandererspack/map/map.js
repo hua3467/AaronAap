@@ -5,13 +5,7 @@ const tabBtns = document.querySelectorAll(".btn-tab a");
 const listTitle = document.querySelector("#listTitle");
 const btnToggle = document.querySelector("#btnToggle");
 const pplContainer = document.querySelector("aside");
-
-const sourceNames = ["arch", "la", "art"];
-const majorColors = {
-  arch: "#1BBCD1",
-  la: "#0DA85B",
-  art: "#CD2ADB",
-};
+const backpack = document.querySelector(".backpack");
 
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
@@ -26,28 +20,6 @@ if (urlParams.get("from")) {
 
 }
 
-const sodaa = {
-  features: [{
-    type: "Feature",
-    properties: {
-      uid: "sodaa",
-      fname: "SODAA",
-      lname: "",
-      major: "",
-      city: "Fargo",
-      state: "ND",
-      title: "",
-      website: "https://www.ndsu.edu/sodaa/",
-      image: "http://map.ndsusodaa.com/sodaapeople/images/Renaissance.jpg",
-      work: [],
-    },
-    geometry: {
-      coordinates: [-96.790494, 46.875552],
-      type: "Point",
-    },
-  }, ],
-  type: "FeatureCollection",
-};
 
 // TO MAKE THE MAP APPEAR YOU MUST
 // ADD YOUR ACCESS TOKEN FROM
@@ -57,7 +29,7 @@ mapboxgl.accessToken =
 
 var map = new mapboxgl.Map({
   container: "map",
-  style: "mapbox://styles/aayang/ckhe5w9l707zu19obadmd6z7c",
+  style: "mapbox://styles/aayang/ckfhnnlks0b7v19l7oxweshja",
   center: [-96.779, 46.878],
   zoom: 3.5,
 });
@@ -106,13 +78,13 @@ let zoomToBounds = function (data) {
 
 const popupContent = function (properties) {
 
-  return `<h5>${properties.fname} ${properties.lname}</h5>
+  return `<h5>${properties.fname}</h5>
           <p class="line-narrow"><span class="icon-lead"><i class="fas fa-map-marker-alt"></i></span>${properties.userCity},${properties.userState}, ${properties.userCountry}</p>
           <p class="line-narrow"><span class="icon-lead"><i class="fas fa-building"></i></span>I'm here to see ${properties.form_what} with ${properties.form_who}</p>
           <div class="about-user">
             <img src=${properties.image}/>
             <p>${properties.form_story}</p>
-            <p><b>Backpack: </b></p>
+            <p><b>What are in my backpack: </b></p>
             <ul>
               <li>${properties["item-1"]}</li>
               <li>${properties["item-2"]}</li>
@@ -133,18 +105,9 @@ let addMarker = function (markerData) {
   let feature = markerData.features[0].properties;
   let peopleCoord = markerData.features[0].geometry.coordinates;
 
-  if (feature.uid === "sodaa") {
-    var popupUser = new mapboxgl.Popup().setHTML(
-      `<iframe src="https://player.vimeo.com/video/458829008" width="100%" frameborder="0" allow="autoplay; fullscreen" allowfullscreen class="sodaa-video"></iframe>
-        <h5>${feature.fname} ${feature.lname}</h5>
-        <a href="${parseURL(feature.website)}" target="_blank" style="color: black">Visit Website</a>`
-    );
-  } else {
-    var popupUser = new mapboxgl.Popup().setHTML(
-      popupContent(feature)
-    );
-  }
-
+  var popupUser = new mapboxgl.Popup().setHTML(
+    popupContent(feature)
+  );
 
   var el = document.createElement("div");
   el.id = "RH_marker";
@@ -159,21 +122,30 @@ let addMarker = function (markerData) {
 };
 
 let addUserMarker = function (data) {
-  console.log(data);
+
   const ele = document.createElement("div");
   ele.className = "userMarker";
+  ele.style = `background-image: url(${data.properties.image})`;
+  ele.addEventListener("click", e => {
+    backpack.classList.remove("hide");
+    backpack.innerHTML = `<div class="btnClose"><i class="fas fa-times-circle"></i> Close</div>
+                          <h5 class="pack-title">${data.properties.fname}'s Backpack</h5>
+                          <div class="pack-body">
+                          <img src="${data.properties.image}">
+                          <p><b>Location: </b>${data.properties.userCity},${data.properties.userState}, ${data.properties.userCountry}</p>
+                          <p><b>Packed Items: </b>${data.properties["item-1"]}, ${data.properties["item-2"]}, ${data.properties["item-3"]}, ${data.properties["item-4"]}, ${data.properties["item-5"]}</p>
+                          <p><b>Who are your bringing? </b>${data.properties.form_who}</p>
+                          <p><b>What are you going to see? </b>${data.properties.form_what}</p></div>`;
 
-    ele.style = `background-image: url(${data.properties.image})`;
-
-
-  var popupUser = new mapboxgl.Popup().setHTML(
-    popupContent(data.properties)
-  );
+    document.querySelector(".btnClose").addEventListener("click", e => {
+      backpack.classList.add("hide");
+    });
+    
+  });
 
   new mapboxgl.Marker(ele)
     .setLngLat(data.geometry.coordinates)
     .setOffset([0, -40])
-    .setPopup(popupUser)
     .addTo(map);
 };
 
@@ -212,7 +184,7 @@ let loadPeopleList = function (peopleData, projects) {
     listItem.innerHTML = `
                     <div class="ppl-card-cover" style="background: url(${property["image"]}) rgba(0,0,0,0.15); background-size: cover;background-repeat: no-repeat;background-position: center;"></div>
                     <div class="ppl-card-title">
-                        <p class="ppl-name" id="${property.uid}">${property.fname} ${property.lname}</p>
+                        <p class="ppl-name" id="${property.uid}">${property.fname}</p>
                         <div class="title-link">
                             <p class="ppl-title">${property.title}</p>
                             <a href="${parseURL(property.website)}" target="_blank">Website</a>
@@ -249,7 +221,7 @@ let loadPeopleList = function (peopleData, projects) {
         top: 100,
         right: 80,
         bottom: 120,
-        left: 360
+        left: 80
       },
     });
   }
@@ -301,14 +273,6 @@ let removeAllLayers = function () {
     map.removeSource("people-data");
   }
 
-  sourceNames.forEach((name) => {
-    if (map.getLayer(name + "-layer")) {
-      map.removeLayer(name + "-layer");
-    }
-    if (map.getSource(name)) {
-      map.removeSource(name);
-    }
-  });
 };
 
 let addPeopleProjects = function (data) {
@@ -325,16 +289,14 @@ let addPeopleProjects = function (data) {
 
   for (let i = 0; i < data.features.length; i++) {
 
-
-
     pointCollection.push(data.features[i].geometry.coordinates);
-
     projectGeoData.features.push(data.features[i])
 
   }
 
 
   if (data.features.length > 1) {
+
     var bounds = pointCollection.reduce((bounds, coord) => {
       return bounds.extend(coord);
     }, new mapboxgl.LngLatBounds(pointCollection[0], pointCollection[0]));
@@ -347,6 +309,7 @@ let addPeopleProjects = function (data) {
         left: 300
       },
     });
+
   }
 
   removeAllLayers();
@@ -419,8 +382,6 @@ let clickName = function (geoData, projects, people) {
 
 map.on("load", function () {
 
-  addMarker(sodaa);
-
   db.ref("wanderer")
     .once("value")
     .then((snapshot) => {
@@ -488,8 +449,6 @@ map.on("load", function () {
 
           //addPeopleProjects(geoData);
           loadPeopleList(selectedPeople, geoData);
-          // zoomToBounds();
-          addMarker(sodaa);
           clickName(geoData, projects, people);
         });
 
@@ -500,8 +459,6 @@ map.on("load", function () {
           tab.classList.remove("active");
         });
 
-        //addPeopleProjects(projects);
-        addMarker(sodaa);
         loadPeopleList(people, geoData);
 
         people.forEach(person => {
@@ -586,6 +543,7 @@ map.on("click", "people-end-points", function (e) {
 
 
 let flag = false;
+
 btnToggle.addEventListener("click", (e) => {
   if (!flag) {
     pplContainer.style = "left: -230px";

@@ -256,25 +256,53 @@ main h4 {
 
 .userMarker {
     background-size: cover;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
     border: 2px solid #FFCC00;
     cursor: pointer;
     z-index: 0;
+    /* mask-image: url(../../Backpack.svg);
+    -webkit-mask-image: url(../../Backpack.svg);
+    -webkit-mask-border: url(../../Backpack.svg) 27 / 4px stretch alpha;
+    mask-border: url(../../Backpack.svg) 27 / 4px stretch alpha; */
 }
-.userMarker:after {
-    content: '';
-	position: absolute;
-	bottom: 3px;
-	left: 50%;
-	width: 0;
-	height: 0;
-	border: 12px solid transparent;
-	border-top-color: #FFCC00;
-	border-bottom: 0;
-	margin-left: -9px;
-    margin-bottom: -12px;
+
+.backpack {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: url(../../Backpack.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: top;
+    height: 700px;
+    width: 600px;
+    padding-top: 120px;
+    padding-left: 140px;
+    padding-right: 140px;
+    z-index: 1000;
+}
+.btnClose {
+    font-size: 1.5em;
+    position: absolute;
+    right: 40px;
+    top: 40px;
+}
+.btnClose:hover {
+    cursor: pointer;
+}
+.backpack .pack-title {
+    width: 100%;
+    text-align: center;
+}
+.pack-body {
+    height: 360px;
+    overflow: scroll;
+}
+.pack-body img {
+    width: 100%;
 }
 
 .mapboxgl-popup-content {
