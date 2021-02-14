@@ -29,10 +29,10 @@
     </div>
 
     <div id="description" class="hide">
-        <p>Click the box to close. The content will be updated according to the user input.</p>
     </div>
 
     <div id="colorContainer">
+        <h4>Here are the colors we collected so far:</h4>
         <div id="colorGrid"></div>
     </div>
 
@@ -79,9 +79,6 @@
         const urlParams = new URLSearchParams(queryString);
         const currentColor = '#' + urlParams.get("color");
         const currentUID = urlParams.get("uid");
-
-
-        addDescription(dataEg[0], currentColor);
 
 
         // for (let i = 0; i < 500; i++) {
@@ -141,7 +138,7 @@
 
 
         getColorInfo("prism", currentUID, (data) => {
-            console.log(data);
+            addDescription(data, data.color);
         });
 
         function makeColorBox(profile){
@@ -158,16 +155,15 @@
         }
 
         function addDescription(info, color) {
-
+            descriptionBox.innerHTML = "";
             descriptionBox.classList.remove("hide");
             descriptionBox.style = `background-color: ${color}`;
-            descriptionBox.innerHTML = "<p>Click the box to close. The content will be updated according to the user input.</p>";
             const nameEle = document.createElement("h4");
-            nameEle.innerHTML = info.name;
+            nameEle.innerHTML = "My color: " + info.colorTitle;
             const locationEle = document.createElement("p");
-            locationEle.innerHTML = info.userCity + ', ' + info.userState + ', ' + info.userCountry;
+            locationEle.innerHTML = "<b>Location</b>: " + info.userCity + ', ' + info.userState + ', ' + info.userCountry;
             const storyEle = document.createElement("p");
-            storyEle.innerHTML = info.story;
+            storyEle.innerHTML = "<b>Story</b>: " + info.story;
 
             descriptionBox.append(nameEle, locationEle, storyEle);
         }
