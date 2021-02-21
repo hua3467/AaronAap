@@ -18,14 +18,12 @@ main {
     height: 100vh;
     z-index: 10;
 }
-.navbar {
-    display: flex;
-    justify-content: space-between;
-}
 .navbar h2{
     font-size: 1.6em;
     padding-top: 10px;
     font-weight: 300;
+    text-align: center;
+    width: 100%;
 }
 aside {
     position: absolute;
@@ -45,10 +43,16 @@ aside {
     bottom: 0;
     left: 0;
     width: 100%;
-    background: rgba(0, 0, 0, 0.619);
+    background: rgba(0, 0, 0, 0.714);
     z-index: 1000;
-    padding: 45vh 10%;
-    
+    padding: 36vh 10%;
+    color: white;
+    text-align: center;
+}
+
+#progressContainer .btn {
+    width: 320px;
+    margin-top: 40px;
 }
 
 .map-bg {

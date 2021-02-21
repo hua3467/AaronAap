@@ -1,5 +1,3 @@
-
-
 const userInfoItems = document.querySelectorAll(".user-info-items");
 const userName = document.querySelectorAll(".user-name");
 const userRequiredInfo = document.querySelectorAll(".required-user-item");
@@ -11,6 +9,7 @@ const bagImg = document.querySelector("#bagImg");
 const fill = document.querySelector("#fill");
 
 const uploadProgress = document.querySelector(".progress-bar");
+//const uploadResult = document.querySelector(".progress-result");
 const uploadOverlay = document.querySelector(".overlay-full");
 const notifBar = document.querySelector("#notifBar");
 const btnSubmit = document.querySelector("#btnSubmit");
@@ -52,8 +51,8 @@ function readURL(input) {
 }
 
 inputImage.onchange = function () {
-    if(this.files[0].size > 2097152) {
-        alert("The file is too big! The maximum accepted file size is 2MB.");
+    if(this.files[0].size > 5297152) {
+        alert("The file is too big! The maximum accepted file size is 5MB.");
        this.value = "";
     } else {
         readURL(this);
@@ -66,7 +65,7 @@ const submitProfile = function () {
     if (isInputFilled(userRequiredInfo)) {
         document.body.scrollTop = 0;
         document.documentElement.scrollTop = 0;
-        alert("Please complete the required information.");
+        alert("All the information are required");
         highlightForms(userRequiredInfo);
         return
     }
@@ -90,7 +89,7 @@ const submitProfile = function () {
 
     });
 
-    showNotification('Your information is saved.');
+    //showNotification('Your information is saved.');
     isUserInfoSubmitted = true;
 };
 
@@ -121,8 +120,12 @@ userInfoItems.forEach(item => {
 
 
 btnSubmit.addEventListener('click', function (e) {
+    console.log(userID);
+
     e.preventDefault();
     submitProfile();
+    userProfile.uid = Date.now();
+    console.log(userProfile.uid);
 });
 
 

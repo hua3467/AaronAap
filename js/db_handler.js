@@ -1,5 +1,6 @@
 
 const progressContainer = document.querySelector("#progressContainer");
+const uploadResult = document.querySelector(".progress-result");
 
 const uploadImage = function (dbPath, imgStorePath, project, id) {
 
@@ -26,9 +27,10 @@ const uploadImage = function (dbPath, imgStorePath, project, id) {
                 uploadTask.snapshot.ref.getDownloadURL().then(url => {
 
                     db.ref(dbPath + "image").set(url);
-                    progressContainer.classList.add("hide");
                     project.image = url;
-
+                    if (uploadResult) {
+                        uploadResult.innerHTML = "Your information was saved successfully."
+                    }
                 });
             });
         });

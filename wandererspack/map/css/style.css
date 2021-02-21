@@ -290,7 +290,7 @@ main h4 {
     background-repeat: no-repeat;
     background-size: contain;
     background-position: top;
-    height: 700px;
+    height: 80vh;
     width: 600px;
     padding-top: 120px;
     padding-left: 140px;
@@ -309,7 +309,7 @@ main h4 {
 .backpack .pack-title {
     width: 100%;
     text-align: center;
-}
+} 
 .pack-body {
     height: 360px;
     overflow: scroll;
