@@ -74,12 +74,11 @@
                 btnDelete.setAttribute("data-uid", entry.uid);
 
                 btnDelete.addEventListener("click", e => {
-                    if (window.confirm("Are you sure you want to delete this entry?")) {
+                    if (window.confirm("Are you really want to delete this entry? This cannot be undo.")) {
                         deleteData(currentProject, e.target.dataset.uid, () => {
-                        console.log("Data is deleted.");
-                    });
+                            alert("Data is deleted.");
+                        });
                     }
-                    
                 });
 
                 entryContainer.append(content, btnDelete);
