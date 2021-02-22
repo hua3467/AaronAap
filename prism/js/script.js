@@ -9,7 +9,7 @@ const accountInfo = document.querySelector("#accountInfo");
 const profile = {
     color: "",
     story: "",
-    name: "",
+    username: "",
     email: "",
     userCity: "",
     userState: "",
@@ -62,7 +62,6 @@ colorPicker.on('color:change', function(color) {
           profile[e.target.name] = e.target.value;
       });
   });
-
 
   btnNext.addEventListener( "click", e => {
       if(profile.color === "") {

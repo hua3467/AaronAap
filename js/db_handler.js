@@ -77,3 +77,15 @@ const getColor = function(dbPath, callback) {
         callback(snapshot.val());
     });
 };
+
+const getData = function(projectName, callback) {
+    db.ref(projectName).on("value", snapshot => {
+        console.log(snapshot.val());
+        callback(snapshot.val());
+    });
+}
+
+const deleteData = function(projectName, id, callback) {
+    db.ref(projectName + '/' + id).remove();
+    callback();
+}
