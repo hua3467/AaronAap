@@ -15,20 +15,22 @@
 <body>
 
     <div id="progressContainer" class="hide">
-        <h3 class="progress-result">Success</h3><br>
+        <h3 class="progress-result">Saving your pack...</h3><br>
         <div class="progress" style="height: 4px;">
             <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
                 aria-valuemin="0" aria-valuemax="100" style="width: 0"></div>
         </div><br>
-        <div class="text-center">
-            <a href="https://apps.aaronyang.me/wandererspack/map/" class="btn btn-primary">Find me pack on the world map.</a><br>
+        <div class="text-center btn-group-submitted hide">
+            <a href="https://apps.aaronyang.me/wandererspack/map/" class="btn btn-primary">Find my pack on the world map.</a><br>
             <a href="#" class="btn btn-outline-warning">Submit another Pack</a>
         </div>
         
     </div>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <h2 class="text-center">THE WANDERER’S PACK</h2>
+    <nav class="navbar navbar-light bg-light">
+            <a href="../index.html" class="nav-item">Information</a>
+            <h2 class="text-center" class="'nav-item logo-center">THE WANDERER’S PACK</h2>
+            <a href="../map/index.html" class="nav-item">View Packs</a>
     </nav>
 
     <main class="container">
@@ -57,39 +59,23 @@
 
                         <div class="col-8">
 
-                            <div class="row">
-                                <div class="col">
-                                    <label for="fname">First Name<span class="red">*</span></label>
-                                    <input type="text" class="form-control user-info-items user-name required-user-item"
-                                        name="fname" required>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col">
-                                    <label for="userEmail">Email<span class="red">*</span></label>
-                                    <input type="email" class="form-control user-info-items user-name required-user-item"
-                                        name="userEmail" required>
-                                </div>
-                            </div>
+                            
                             <br>
                             <div class="row">
                                 <div class="col">
-                                    <p><b>LOCATION OF DESTINATION:</b></p>
+                                    <p>Location of destination you wish to travel to:<span class="red">*</span></p>
                                 </div>                                
                             </div>
 
                             <div class="row">
                                 <div class="col">
-                                    <label for="userCity">City<span class="red">*</span></label>
                                     <input type="text" class="form-control user-info-items required-user-item"
-                                        name="userCity" value="" required>
+                                        name="userCity" value="" placeholder="City" required>
                                 </div>
                                 <div class="col">
-                                    <label for="userState">State<span class="red">*</span></label>
                                     <select class="form-control user-info-items required-user-item" placeholder="ND"
                                         name="userState" required>
-                                        <option value="" selected>Select</option>
+                                        <option value="" selected>State</option>
                                         <option value=" ">Outside US</option>
                                         <option value="AL">Alabama</option>
                                         <option value="AK">Alaska</option>
@@ -146,10 +132,31 @@
                                     </select>
                                 </div>
                                 <div class="col">
-                                    <label for="userCountry">Country<span class="red">*</span></label>
                                     <input type="text" class="form-control user-info-items required-user-item"
-                                        name="userCountry" value="" required>
+                                        name="userCountry" value="" placeholder="Contry" required>
                                 </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <label for="form_what">What are you going to experience at this destination?<span class="red">*</span></label>
+                                <textarea class="form-control user-info-items required-user-item" rows="1" name="form_what"
+                                    placeholder=""></textarea>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <label for="form_who">When imagining this location who would you bring with to experience it with you?<span class="red">*</span></label>
+                                    <textarea class="form-control user-info-items required-user-item" rows="1" name="form_who"
+                                        placeholder=""></textarea>
+                                    </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <label for="form_story">What is the story of this pack and why you are going to this destination?<span class="red">*</span></label>
+                                    <textarea class="form-control user-info-items required-user-item" rows="3" name="form_story"
+                                    placeholder=""></textarea>
+                                </div> 
                             </div>
 
                         </div>
@@ -165,7 +172,7 @@
                             </div>
                         </div>
                         <div class="col-8">
-                            <p>What are you bringing?<span class="red">*</span></p>
+                            <p>If you could ONLY bring 5 items for this excursion what would they be? (Journey soundtrack, oreos, grandma’s ashes, etc.)<span class="red">*</span></p>
                             <input type="text" placeholder="Item 1" name="item-1" class="bag-item form-control user-info-items required-user-item">
                             <input type="text" placeholder="Item 2" name="item-2" class="bag-item form-control user-info-items required-user-item">
                             <input type="text" placeholder="Item 3" name="item-3" class="bag-item form-control user-info-items required-user-item">
@@ -175,21 +182,22 @@
                         
                     </div>
                     <br><br>
-                   <div class="">
-                        <label for="form_who">Who are you going to bring?<span class="red">*</span></label>
-                        <textarea class="form-control user-info-items required-user-item" rows="1" name="form_who"
-                            placeholder=""></textarea>
+                    <div class="row">
+                        <div class="col">
+                            <label for="fname">First Name<span class="red">*</span></label>
+                            <input type="text" class="form-control user-info-items user-name required-user-item"
+                                name="fname" required>
+                        </div>
+                    
+                        <div class="col">
+                            <label for="userEmail">Email<span class="red">*</span></label>
+                            <input type="email" class="form-control user-info-items user-name required-user-item"
+                                name="userEmail" required>
+                        </div>
                     </div>
-                    <div class="">
-                        <label for="form_what">What are you going to see?<span class="red">*</span></label>
-                        <textarea class="form-control user-info-items required-user-item" rows="1" name="form_what"
-                            placeholder=""></textarea>
-                    </div>
-                    <div class="">
-                        <label for="form_story">Story of why you are going.<span class="red">*</span></label>
-                        <textarea class="form-control user-info-items required-user-item" rows="2" name="form_story"
-                            placeholder=""></textarea>
-                    </div>
+
+
+                   
 
                 </div>
 

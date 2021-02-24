@@ -1,6 +1,7 @@
 
 const progressContainer = document.querySelector("#progressContainer");
 const uploadResult = document.querySelector(".progress-result");
+const btnGroupSubmitted = document.querySelector(".btn-group-submitted");
 
 const uploadImage = function (dbPath, imgStorePath, project, id) {
 
@@ -29,7 +30,10 @@ const uploadImage = function (dbPath, imgStorePath, project, id) {
                     db.ref(dbPath + "image").set(url);
                     project.image = url;
                     if (uploadResult) {
-                        uploadResult.innerHTML = "Your information was saved successfully."
+                        uploadResult.innerHTML = "Your information was saved successfully.";
+                    }
+                    if (btnGroupSubmitted) {
+                        btnGroupSubmitted.classList.remove("hide");
                     }
                 });
             });

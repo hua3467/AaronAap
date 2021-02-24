@@ -125,7 +125,6 @@ btnSubmit.addEventListener('click', function (e) {
     e.preventDefault();
     submitProfile();
     userProfile.uid = Date.now();
-    console.log(userProfile.uid);
 });
 
 

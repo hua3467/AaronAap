@@ -22,8 +22,6 @@ main {
     font-size: 1.6em;
     padding-top: 10px;
     font-weight: 300;
-    text-align: center;
-    width: 100%;
 }
 aside {
     position: absolute;
@@ -253,8 +251,18 @@ td {
 }
 
 
-/* Faculty Form Styles */
-
+/* Form Styles */
+nav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.logo-center {
+    display: block;
+}
+.nav-item {
+    display: block;
+}
 
 .project-card {
     background: #FFFFFF 0% 0% no-repeat padding-box;
