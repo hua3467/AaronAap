@@ -72,7 +72,7 @@ colorPicker.on('color:change', function(color) {
           uploadColor("prism", profile);
           window.location.href = `prism.html?color=${profile.color.substring(1)}&uid=${profile.uid}`;
         } else {
-          alert("Personal Color Title and Reason is required.");
+          alert("All questions must be answered, unless marked (optional).");
         }
           
       }

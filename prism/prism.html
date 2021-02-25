@@ -118,36 +118,13 @@
             })
         });
 
-        const myBox = document.createElement('div');
-        myBox.className = "color-box user-color-box";
-        myBox.style = `background-color: ${currentColor}`;
-        myBox.addEventListener("click", e => {
-            addDescription(dataEg[0], currentColor);
-            // descriptionBox.style.left = e.pageX + "px";
-            // descriptionBox.style.top = e.pageY + "px";
-        });
-        colorGrid.append(myBox);
+
 
         document.querySelector("#colorCode").innerHTML = urlParams.get("color");
-
 
         descriptionBox.addEventListener("click", e => {
             e.currentTarget.classList.add("hide");
         });
-
-        // btnSquare.addEventListener("click", e => {
-        //     document.querySelectorAll(".color-box").forEach(box => {
-        //         box.classList.remove("shap-circle");
-        //         box.classList.add("shape-sqaure");
-        //     })
-        // });
-
-        // btnCircle.addEventListener("click", e => {
-        //     document.querySelectorAll(".color-box").forEach(box => {
-        //         box.classList.add("shap-circle");
-        //         box.classList.remove("shape-sqaure");
-        //     })
-        // });
 
         getColorInfo("prism", currentUID, (data) => {
             if(data) {
@@ -161,6 +138,9 @@
             box.className = "color-box";
             box.id = profile.uid;
             box.style = `background-color: ${profile.color}`;
+            if (profile.uid === currentUID) {
+                box.style = `background-color: ${profile.color}; border-radius: 50%;`;
+            }
             box.addEventListener("click", e => {
                 addDescription(profile, profile.color);
                 // descriptionBox.style.left = e.pageX + "px";

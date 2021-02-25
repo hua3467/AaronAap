@@ -186,17 +186,7 @@ header img {
 }
 
 
-#colorGrid {
-    width: 100%;
-}
 
-.color-box {
-    height: 40px; 
-    width: 40px; 
-    margin: 2px 4px; 
-    padding:0;  
-    display:inline-block; 
-}
 
 
 #control {
@@ -223,8 +213,27 @@ header img {
 
 /* Prism Page */
 
+#colorGrid {
+    width: 100%;
+}
+
+.color-box {
+    height: 40px; 
+    width: 40px; 
+    margin: 2px 4px; 
+    padding:0;  
+    display:inline-block; 
+    transition: all 0.3s;
+}
+
 .user-color-box {
     border: 2px solid rgb(0, 0, 0);
+}
+
+.color-box:hover {
+    border: 2px solid black;
+    cursor: pointer;
+    transform: scale(1.2);
 }
 
 .shap-circle {
