@@ -12,31 +12,44 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="#" target="_blank">Not a Link</a>
-            </li>
-        </ul>
-
+    <nav class="navbar bg-white nav-center">
+        <img src="logo_graph.png" alt="Prism Logo">
     </nav>
 
-    <div id="control">
-        <p>Display Options</p>
-        <button id="btnCircle">Circle</button>
-        <button id="btnSquare">Square</button>
-    </div>
+    <main class="container">
+        <div class="process process-black row">
+            <div class="step-container col">
+                <a href="index.html" class="step-box step-box-hover"></a>
+                <p>INTRODUCTION</p>
+            </div>
+            <div class="step-container col">
+                <a href="form.html" class="step-box step-box-hover"></a>
+                <p>COLLECTION</p>
+            </div>
+            <div class="step-container col">
+                <div class="step-box step-box-current"></div>
+                <p>EXPLORE</p>
+            </div>
+        </div>
+        <br><br><br>
+    
+        <!-- <div id="control">
+            <p>Display Options</p>
+            <button id="btnCircle">Circle</button>
+            <button id="btnSquare">Square</button>
+        </div> -->
+    
+        <div id="description" class=""></div>
+    
+        <div id="colorContainer">
+            <p>This mosaic is a collection of individual fragments that are linked and representing our collective societal standing in the current fabric of time.</p>
+            <div id="colorGrid"></div>
+        </div>
+    
+        <p id="colorCode" class="hide"></p>
+    </main>
 
-    <div id="description" class="">
-    </div>
-
-    <div id="colorContainer">
-        <h4>Here are the colors we collected so far:</h4>
-        <div id="colorGrid"></div>
-    </div>
-
-    <p id="colorCode" class="hide"></p>
+    
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
@@ -122,22 +135,25 @@
             e.currentTarget.classList.add("hide");
         });
 
-        btnSquare.addEventListener("click", e => {
-            document.querySelectorAll(".color-box").forEach(box => {
-                box.classList.remove("shap-circle");
-                box.classList.add("shape-sqaure");
-            })
-        });
+        // btnSquare.addEventListener("click", e => {
+        //     document.querySelectorAll(".color-box").forEach(box => {
+        //         box.classList.remove("shap-circle");
+        //         box.classList.add("shape-sqaure");
+        //     })
+        // });
 
-        btnCircle.addEventListener("click", e => {
-            document.querySelectorAll(".color-box").forEach(box => {
-                box.classList.add("shap-circle");
-                box.classList.remove("shape-sqaure");
-            })
-        });
+        // btnCircle.addEventListener("click", e => {
+        //     document.querySelectorAll(".color-box").forEach(box => {
+        //         box.classList.add("shap-circle");
+        //         box.classList.remove("shape-sqaure");
+        //     })
+        // });
 
         getColorInfo("prism", currentUID, (data) => {
-            addDescription(data, data.color);
+            if(data) {
+                addDescription(data, data.color);
+            }
+            
         });
 
         function makeColorBox(profile){

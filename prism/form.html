@@ -11,17 +11,13 @@
     <link rel="stylesheet" href="css/style.css?v=2">
 
     <style>
-        body {
-            background: black;
-        }
-
         .btn-group-toggle .active input {
             background-color: rgb(104, 10, 237);
         }
     </style>
 </head>
 
-<body>
+<body class="color-bg-black">
 
     <div id="progressContainer" class="hide">
         <div class="progress" style="height: 4px;">
@@ -30,34 +26,9 @@
         </div>
     </div>
 
-    <nav class="navbar navbar-expand-lg navbar-white bg-white">
-
-        <!--  Show this only on mobile to medium screens  -->
-          <a class="navbar-brand d-lg-none" href="#">Navbar</a>
-        
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-        
-        <!--  Use flexbox utility classes to change how the child elements are justified  -->
-          <div class="collapse navbar-collapse justify-content-between" id="navbarToggle">
-        
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link active" href="index.html">&#8592; Introduction </a>
-              </li>
-            </ul>
-
-        <!--   Show this only lg screens and up   -->
-        <img src="logo_graph.png" alt="">
- 
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="prism.html">Prism &#8594;</a>
-              </li>
-            </ul>
-          </div>
-        </nav>
+    <nav class="navbar bg-white">
+        <img src="logo_graph.png" alt="Prism Logo">
+    </nav>
 
 
     <br>
@@ -66,63 +37,54 @@
         <div id="notifBar" class="hide">
             <p></p><i class="fas fa-times-circle"></i>
         </div>
-
-        <br>
+        <div class="processv process-white row">
+            <div class="step-container col">
+                <a href="index.html" class="step-box step-box-hover"></a>
+                <p>INTRODUCTION</p>
+            </div>
+            <div class="step-container col">
+                <div class="step-box step-box-current"></div>
+                <p>COLLECTION</p>
+            </div>
+            <div class="step-container col">
+                <a href="prism.html" class="step-box step-box-hover"></a>
+                <p>EXPLORE</p>
+            </div>
+        </div>
+        <br><br>
 
         <div class="user-info">
             <div class="align-items-end">
 
-                <div class="row">
-
-                    <div class="col-6">
-                        <label for="">What is the color of your world today? <span class="red-color">*</span></label>
-                        <div class="row">
-                            <div class="col">
+                    <div class="row d-flex flex-column justify-content-center" id="colorEnter">
+                        <h2 class="color-white">What is the color of your world today?</h2>
+                        <div class="row color-picker-container">
+                            <div class="col d-flex justify-content-center">
                                 <div id="picker"></div>
                             </div>
-                            <div class="col">
-                                <div class="color-preview">Your Color</div>
-                                <input type="text" placeholder="#000000" class="form-control user-info-items"
-                                    name="colorInput" value="#ffffff" id="colorInput">
+                            <div class="col d-flex justify-content-center">
+                                <div>
+                                    <div class="color-preview">Your Color</div>
+                                    <input type="text" placeholder="#000000" class="form-control user-info-items color-bg-black color-white"
+                                        name="colorInput" value="#ffffff" id="colorInput">
+                                </div>
                             </div>
                         </div>
-
                     </div>
-                    <div class="col-6" id="profileForm">
-                        <label for="colorTitle">Personal Color Title: <span class="red-color">*</span></label>
-                        <input type="text" class="form-control user-name user-info-items required-user-item"
-                            name="colorTitle"><br>
-                        <label for="story">Why? <span class="red-color">*</span></label>
-                        <textarea class="form-control user-info-items required-user-item" rows="5" name="story" placeholder=""></textarea>
 
-                        <br><br>
-                        <label for="" data-toggle="tooltip" data-placement="top" title="You will be able to search your entry with username on the Prism page."><b>Create a Prism Account (Optional)</b> <span class="help">&#9432;</span></label> 
-                        <br>
-                        <br>
-                            <div class="row" id="accountInfo">
-                                <div class="col-5">
-                                    <label for="username">Username</label>
-                                    <input type="text" class="form-control user-info-items" name="username"> 
-                                </div>
-                                <div class="col-3">
-                                    <label for="gender">Age</label>
-                                    <input type="number" class="form-control user-info-items" name="gender">
-                                </div>
-                                <div class="col-4">
-                                    <label for="gender">Gender Identity</label>
-                                    <select class="form-control" id="gender">
-                                        <option value="" selected>Select</option>
-                                        <option value="man">Man</option>
-                                        <option value="woman">Woman</option>
-                                        <option value="nonbinary">nonbinary</option>
-                                        <option value="agender">agender</option>
-                                        <option value="genderfluid">genderfluid</option>
-                                        <option value="other">Other</option>
-                                      </select>
-                                </div>
-                            </div><br>
 
-                            <div class="row"></div>
+                    <div class="row" id="profileForm">
+
+                        <div class="col">
+                            <label for="colorTitle">Personal Color Title:</label>
+                            <input type="text" class="form-control user-name user-info-items required-user-item"
+                                name="colorTitle"><br>
+                            <label for="story">What is it about today that represents this color?</label>
+                            <textarea class="form-control user-info-items required-user-item" rows="7" name="story" placeholder=""></textarea>
+
+                        </div>
+
+                        <div class="col">
 
                             <div class="row">
                                 <div class="col">
@@ -197,15 +159,43 @@
                                         name="userCountry">
                                 </div>
                             </div><br>
-                        <br>
-                        <div class="row">
-                            <div class="col">
-                                <button class="btn btn-secondary btn-block" id="btnNext"><b>Save my Color</b></button>
-                            </div>
-                        </div>
 
+                            <div class="row" id="accountInfo">
+                                <div class="col">
+                                    <label for="gender">Age</label>
+                                    <input type="number" class="form-control user-info-items" name="gender">
+                                </div>
+                                <div class="col">
+                                    <label for="gender">Gender Identity</label>
+                                    <select class="form-control" id="gender">
+                                        <option value="" selected>Select</option>
+                                        <option value="man">Man</option>
+                                        <option value="woman">Woman</option>
+                                        <option value="nonbinary">nonbinary</option>
+                                        <option value="agender">agender</option>
+                                        <option value="genderfluid">genderfluid</option>
+                                        <option value="other">Other</option>
+                                      </select>
+                                </div>
+                            </div><br>
+
+                            <div class="row">
+                                <div class="col">
+                                    <label for="" data-toggle="tooltip" data-placement="top" title="You will be able to search your entry with username on the Prism page."><b>Create a Prism Account (Optional)</b> <span class="help">&#9432;</span></label> 
+                                    <br>
+                                    <label for="username">Username:</label>
+                                    <input type="text" class="form-control user-info-items" name="username">
+                                </div>
+                            </div>
+                             
+                        </div>
+                        
+                    </div><br>
+                    <div class="row">
+                        <div class="col">
+                            <button class="btn btn-secondary btn-block" id="btnNext"><b>Save my Color</b></button>
+                        </div>
                     </div>
-                </div>
 
             </div>
 
