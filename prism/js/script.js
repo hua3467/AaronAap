@@ -10,10 +10,9 @@ const profile = {
     color: "",
     story: "",
     username: "",
-    email: "",
     userCity: "",
     userState: "",
-    userCountry: "",
+    userCountry: "USA",
     uid: 'u' + Date.now(),
     hasAccount: false
 };
@@ -60,6 +59,13 @@ colorPicker.on('color:change', function(color) {
   inputs.forEach( item => {
       item.addEventListener("change", e => {
           profile[e.target.name] = e.target.value;
+          if (e.target.name === "username") {
+            if (e.target.value.length > 0) {
+              profile.hasAccount = true;
+            } else {
+              profile.hasAccount = false;
+            }
+          }
       });
   });
 

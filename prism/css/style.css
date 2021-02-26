@@ -18,6 +18,30 @@ h2{
     text-align: center;
 }
 
+.float-bottom {
+    position: fixed;
+    bottom: 0;
+}
+
+.info-box {
+    width: 50%;
+    min-width: 360px;
+    max-width: 720px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    background: rgb(255, 255, 255);
+    padding: 10px 20px 0 20px;
+    border: 1px solid black;
+    border-bottom: none;
+}
+
+.spacer {
+    width: 100%;
+    height: 120px;
+}
 
 /* Step */
 
@@ -104,7 +128,6 @@ header img {
 
 
 .description-container {
-    height: 55vh;
     background: black;
     color: white;
     padding-top: 40px;
@@ -121,7 +144,7 @@ header img {
     padding-right: 10%;
     padding-bottom: 40px;
     max-width: 1600px;
-
+    text-align: center;
 }
 .description-container .btn {
     width: 360px;
@@ -161,12 +184,6 @@ header img {
     text-align: center;
 }
 
-#colorContainer {
-    margin: 0 80px;
-    padding: 40px;
-    border: 4px solid rgb(255, 255, 255);
-    border-radius: 12px;
-}
 
 #colorInput {
     margin-top: 10px;
@@ -211,8 +228,16 @@ header img {
 
 
 
+
+
 /* Prism Page */
 
+
+#colorContainer {
+    padding: 40px;
+    border: 4px solid rgb(255, 255, 255);
+    border-radius: 12px;
+}
 #colorGrid {
     width: 100%;
 }
@@ -248,10 +273,9 @@ header img {
     padding: 30px 40px;
     position: relative;
     width: 70%;
-    min-width: 400px;
     margin-left: auto;
     margin-right: auto;
-    background-color: rgb(69, 136, 11);
+    background-color: rgb(79, 79, 79);
     border: 8px solid white;
     border-radius: 16px;
     box-shadow: 4px 4px 18px rgba(0,0,0,0.3);
@@ -280,4 +304,39 @@ nav {
 
 .hide {
     display: none;
+}
+
+
+@media (max-width: 575.98px) {
+
+    .home-header .logo {
+        width: 75%;
+    }
+
+    .color-picker-container {
+        width: 300px;
+    }
+
+    #colorEnter h2{
+        font-size: 1.6em;
+    }
+
+    .color-preview {
+        margin-top: 40px;
+    }
+
+    #description {
+        width: 320px;
+    }
+
+    .process {
+        padding: 0;
+        width: 100%;
+    }
+    .step-container p {
+        font-size: 0.8em;
+    }
+    .step-container {
+        margin-bottom: -60px;
+    }
 }

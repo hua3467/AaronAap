@@ -47,7 +47,7 @@
             mainContainer.innerHTML = '';
 
             Object.values(data).forEach(entry => {
-
+                console.log(entry);
                 const entryContainer = document.createElement("div");
                 entryContainer.className = "entry-container";
 
@@ -62,9 +62,7 @@
                 content.className = "entry-content";
                 let contentInfo = '';
                 for(key in entry) {
-                    if (entry[key].length > 0) {
-                        contentInfo += `<b>${key}</b>: ${entry[key]}<br>`;
-                    }
+                    contentInfo += `<b>${key}</b>: ${entry[key]}<br>`;
                 }
                 content.innerHTML = contentInfo;
                 
