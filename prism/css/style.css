@@ -43,6 +43,19 @@ h2{
     height: 120px;
 }
 
+.fullcover-white {
+    position: fixed;
+    background: white;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 10000;
+}
+
+
+
+
 /* Step */
 
 .process {
@@ -102,7 +115,45 @@ h2{
 }
 
 
+/* Home landing */
+.landing-zoom-out {
+    animation: zoomout 3s;
+}
+.landing-fade-in {
+    animation: fadein 5s;
+}
 
+@keyframes zoomout {
+    from {
+        transform: scale(2.5);
+        margin-top: 50vh;
+    }
+    to {
+        transform: scale(1);
+        margin-top: 0;
+    }
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    60% {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeout {
+    from {
+        opacity: 1;
+    } 
+    to {
+        opacity: 0;
+    }
+}
 
 
 /* Landing Page */
