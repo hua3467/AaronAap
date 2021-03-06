@@ -133,6 +133,7 @@ let addUserMarker = function (data) {
                           <div class="pack-body">
                           <img src="${data.properties.image}">
                           <p><b>Location: </b>${data.properties.userCity},${data.properties.userState}, ${data.properties.userCountry}</p>
+                          <p><b>Story: </b> ${data.properties.form_story}<p>
                           <p><b>Packed Items: </b>${data.properties["item-1"]}, ${data.properties["item-2"]}, ${data.properties["item-3"]}, ${data.properties["item-4"]}, ${data.properties["item-5"]}</p>
                           <p><b>Who are your bringing? </b>${data.properties.form_who}</p>
                           <p><b>What are you going to see? </b>${data.properties.form_what}</p></div>`;
