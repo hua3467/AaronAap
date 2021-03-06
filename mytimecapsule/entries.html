@@ -11,7 +11,9 @@
     <link rel="stylesheet" href="css/style.css">
 <body>
 
-
+    <header>
+        <h3></h3>
+    </header>
     <main>
         
     </main>
@@ -36,6 +38,9 @@
     <script src="../js/db_handler.js"></script>
 
     <script>
+        
+        const summary = document.querySelector("header h3");
+
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
         const currentProject = urlParams.get("project");
@@ -45,9 +50,10 @@
         getData(currentProject, (data) => {
 
             mainContainer.innerHTML = '';
+            const entries = Object.values(data);
+            summary.innerHTML = `You have received ${entries.length} responses.`;
 
-            Object.values(data).forEach(entry => {
-                console.log(entry);
+            entries.forEach(entry => {
                 const entryContainer = document.createElement("div");
                 entryContainer.className = "entry-container";
 

@@ -11,6 +11,16 @@ body, main {
 }
 
 
+.cover-bg-dark {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.466);
+    z-index: 999;
+}
+
 html {
     font-family: Helvetica, Arial, sans-serif;
     scroll-behavior: smooth;
@@ -290,11 +300,11 @@ main h4 {
     background-repeat: no-repeat;
     background-size: contain;
     background-position: top;
-    height: 80vh;
-    width: 600px;
-    padding-top: 120px;
-    padding-left: 140px;
-    padding-right: 140px;
+    height: 600px;
+    width: 720px;
+    padding-top: 140px;
+    padding-left: 190px;
+    padding-right: 200px;
     z-index: 1000;
 }
 .btnClose {
@@ -302,20 +312,23 @@ main h4 {
     position: absolute;
     right: 40px;
     top: 40px;
+    color: white;
 }
 .btnClose:hover {
     cursor: pointer;
+    color: #ffcc00;
 }
 .backpack .pack-title {
     width: 100%;
     text-align: center;
 } 
 .pack-body {
-    height: 360px;
     overflow: scroll;
+    height: 420px;
 }
 .pack-body img {
     width: 100%;
+    border-radius: 8px;
 }
 
 .mapboxgl-popup-content {

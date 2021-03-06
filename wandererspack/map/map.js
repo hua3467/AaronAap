@@ -6,6 +6,7 @@ const listTitle = document.querySelector("#listTitle");
 const btnToggle = document.querySelector("#btnToggle");
 const pplContainer = document.querySelector("aside");
 const backpack = document.querySelector(".backpack");
+const coverBgDark = document.querySelector(".cover-bg-dark");
 
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
@@ -128,8 +129,9 @@ let addUserMarker = function (data) {
   ele.style = `background-image: url(${data.properties.image})`;
   ele.addEventListener("click", e => {
     backpack.classList.remove("hide");
+    coverBgDark.classList.remove("hide");
+    document.querySelector("header h1").innerHTML = `${data.properties.fname}'s Backpack`;
     backpack.innerHTML = `<div class="btnClose"><i class="fas fa-times-circle"></i> Close</div>
-                          <h5 class="pack-title">${data.properties.fname}'s Backpack</h5>
                           <div class="pack-body">
                           <img src="${data.properties.image}">
                           <p><b>Location: </b>${data.properties.userCity},${data.properties.userState}, ${data.properties.userCountry}</p>
@@ -140,6 +142,8 @@ let addUserMarker = function (data) {
 
     document.querySelector(".btnClose").addEventListener("click", e => {
       backpack.classList.add("hide");
+      coverBgDark.classList.add("hide");
+      document.querySelector("header h1").innerHTML = "FIND YOUR PACK";
     });
     
   });
