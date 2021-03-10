@@ -63,6 +63,16 @@ header h1 {
     text-transform: uppercase;
     font-weight: 300;
 }
+header a {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 54px;
+    width: 140px;
+    padding-top: 16px;
+    background: #ffcc00;
+    color: black;
+}
 
 main {
     display: flex;
@@ -494,11 +504,9 @@ border-radius: 10px;
     header h1 {
         text-align: left;
         font-size: 1.3em;
-        max-width: calc(100% - 80px);
+        max-width: calc(100% - 140px);
         overflow: hidden;
         white-space: nowrap;
     }
-    header a {
-        display: inline-block;
-    }
+    
 }
