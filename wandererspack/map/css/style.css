@@ -458,12 +458,12 @@ border-radius: 10px;
 @media screen and (max-width: 766px) {
     .backpack {
         position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        top: 54px;
+        left: 0;
+        transform: translate(0, 0);
         background-image: none;
         width: 100%;
-        padding-top: 54px;
+        padding-top: 16px;
         padding-left: 16px;
         padding-right: 16px;
         z-index: 1000;
@@ -473,7 +473,7 @@ border-radius: 10px;
         font-size: 1.2em;
         position: absolute;
         right: 16px;
-        top: -6px;
+        top: -42px;
         color: rgb(0, 0, 0);
     }
     .backpack .pack-title {
@@ -487,11 +487,18 @@ border-radius: 10px;
     }
     header {
         padding-left: 16px;
+        padding-right: 16px;
+        display: flex;
+        justify-content: space-between;
     }
     header h1 {
         text-align: left;
-        width: calc(100% - 72px);
+        font-size: 1.3em;
+        max-width: calc(100% - 80px);
         overflow: hidden;
-        text-overflow: clip;
+        white-space: nowrap;
+    }
+    header a {
+        display: inline-block;
     }
 }

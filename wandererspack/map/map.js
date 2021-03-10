@@ -7,6 +7,7 @@ const btnToggle = document.querySelector("#btnToggle");
 const pplContainer = document.querySelector("aside");
 const backpack = document.querySelector(".backpack");
 const coverBgDark = document.querySelector(".cover-bg-dark");
+const btnAdd = document.querySelector("#btnAdd");
 
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
@@ -130,6 +131,7 @@ let addUserMarker = function (data) {
   ele.addEventListener("click", e => {
     backpack.classList.remove("hide");
     coverBgDark.classList.remove("hide");
+    btnAdd.classList.add("hide");
     document.querySelector("header h1").innerHTML = `${data.properties.fname}'s Backpack`;
     backpack.innerHTML = `<div class="btnClose"><i class="fas fa-times-circle"></i> Close</div>
                           <div class="pack-body">
@@ -141,6 +143,7 @@ let addUserMarker = function (data) {
                           <p><b>What are you going to see? </b>${data.properties.form_what}</p></div>`;
 
     document.querySelector(".btnClose").addEventListener("click", e => {
+      btnAdd.classList.remove("hide");
       backpack.classList.add("hide");
       coverBgDark.classList.add("hide");
       document.querySelector("header h1").innerHTML = "FIND YOUR PACK";
