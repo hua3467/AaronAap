@@ -10,14 +10,13 @@ body, main {
     padding: 0;
 }
 
-
 .cover-bg-dark {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.466);
+    background: rgba(0, 0, 0, 0.735);
     z-index: 999;
 }
 
@@ -329,6 +328,7 @@ main h4 {
 .pack-body img {
     width: 100%;
     border-radius: 8px;
+    margin-bottom: 16px;
 }
 
 .mapboxgl-popup-content {
@@ -454,3 +454,44 @@ border-radius: 10px;
      margin-right: 6px;
  }
  
+
+@media screen and (max-width: 766px) {
+    .backpack {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-image: none;
+        width: 100%;
+        padding-top: 54px;
+        padding-left: 16px;
+        padding-right: 16px;
+        z-index: 1000;
+        margin-top: 0;
+    }
+    .btnClose {
+        font-size: 1.2em;
+        position: absolute;
+        right: 16px;
+        top: -6px;
+        color: rgb(0, 0, 0);
+    }
+    .backpack .pack-title {
+        width: 100%;
+        text-align: center;
+    } 
+    .pack-body {
+        overflow: scroll;
+        height: calc(100vh - 84px);
+        color: white;
+    }
+    header {
+        padding-left: 16px;
+    }
+    header h1 {
+        text-align: left;
+        width: calc(100% - 72px);
+        overflow: hidden;
+        text-overflow: clip;
+    }
+}

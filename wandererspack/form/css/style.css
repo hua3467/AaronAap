@@ -18,6 +18,9 @@ main {
     height: 100vh;
     z-index: 10;
 }
+.navbar {
+    z-index: 100;
+}
 .navbar h2{
     font-size: 1.6em;
     padding-top: 10px;
@@ -436,3 +439,27 @@ nav {
     display: none;
 }
 
+@media screen and (max-width: 766px) {
+    .map-bg {
+        display: none;
+    }
+    #imagePreview {
+        height: 240px;
+    }
+    .navbar a:first-child {
+        position: absolute;
+        top: 60px;
+        left: 16px;
+    }
+    .navbar a:last-child {
+        position: absolute;
+        top: 60px;
+        right: 16px;
+    }
+
+    #btnSubmit {
+        display: block;
+        width: 100%;
+        height: 56px;
+    }
+}
