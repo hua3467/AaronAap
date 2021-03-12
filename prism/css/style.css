@@ -283,7 +283,12 @@ header img {
 
 /* Prism Page */
 
-
+.btn-show-info {
+    display: none;
+}
+.btn-close {
+    display: none;
+}
 #colorContainer {
     padding: 40px;
     border: 4px solid rgb(255, 255, 255);
@@ -322,7 +327,7 @@ header img {
 
 #description {
     padding: 30px 40px;
-    position: relative;
+    position: fixed;
     width: 70%;
     margin-left: auto;
     margin-right: auto;
@@ -389,5 +394,37 @@ nav {
     }
     .step-container {
         margin-bottom: -60px;
+    }
+    
+    .btn-show-info {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 56px;
+        width: 56px;
+        background-color: black;
+        color: white;
+        border-radius: 50%;
+        position: fixed;
+        right: 16px;
+        bottom: 16px;
+    }
+    .btn-show-info p {
+        margin: 0;
+        font-size: 1.7em;
+    }
+    .info-box {
+        display: none;
+    }
+    .btn-close {
+        display: block;
+        width: 44px;
+        height: 44px;
+        position: absolute;
+        right: -1px;
+        top: -44px;
+        font-size: 1.9em;
+        background: black;
+        color: white;
     }
 }

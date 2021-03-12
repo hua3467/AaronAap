@@ -42,7 +42,10 @@
         <div class="spacer"></div>
     
         <p id="colorCode" class="hide"></p>
+
+        <div class="btn-show-info"><p>&#9432;</p></div>
         <div class="float-bottom info-box container">
+            <div class="btn-close">&times;</div>
             <p>This mosaic is a collection of individual fragments that are linked and representing our collective societal standing in the current fabric of time.</p>
         </div>
     </main>
@@ -75,6 +78,10 @@
         const btnSquare = document.querySelector("#btnSquare");
         const control = document.querySelector("#control");
 
+        const btnShowInfo = document.querySelector(".btn-show-info");
+        const btnCloseInfo = document.querySelector(".btn-close");
+        const infoBox = document.querySelector(".info-box");
+
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
         const currentColor = '#' + urlParams.get("color");
@@ -101,6 +108,19 @@
             
         });
 
+        btnShowInfo.addEventListener("click", () => {
+            infoBox.style = "display: block";
+        });
+
+        btnCloseInfo.addEventListener("click", () => {
+            infoBox.style = "display: none";
+        })
+
+
+
+
+
+
         function makeColorBox(profile){
             const box = document.createElement('div');
             box.className = "color-box";
@@ -111,8 +131,7 @@
             }
             box.addEventListener("click", e => {
                 addDescription(profile, profile.color);
-                // descriptionBox.style.left = e.pageX + "px";
-                // descriptionBox.style.top = e.pageY + "px";
+                //e.target.style = `background-color: ${profile.color};position: absolute; height: 100px; width: 100px`
             })
             colorGrid.append(box);
         }
