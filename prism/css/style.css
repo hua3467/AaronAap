@@ -295,7 +295,11 @@ header img {
     border-radius: 12px;
 }
 #colorGrid {
-    width: 100%;
+    width: 70%;
+    max-width: 528px;
+    min-width: 290px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .color-box {
@@ -331,6 +335,9 @@ header img {
     width: 70%;
     margin-left: auto;
     margin-right: auto;
+    left: 0;
+    right: 0;
+    top: 70px;
     background-color: rgb(79, 79, 79);
     border: 8px solid white;
     border-radius: 16px;
@@ -381,12 +388,17 @@ nav {
         margin-top: 40px;
     }
 
+    #colorContainer {
+        padding: 20px
+    }
+
     #description {
         width: 320px;
     }
 
     .process {
         padding: 0;
+        margin: 0;
         width: 100%;
     }
     .step-container p {
